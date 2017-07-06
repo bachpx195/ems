@@ -1,0 +1,52 @@
+<div class="page-header navbar navbar-fixed-top">
+  <div class="page-header-inner ">
+    <div class="page-logo">
+      <%= link_to admin_root_path do %>
+          <%= image_tag "logo.png", alt: "logo", class: "logo-default" %>
+      <% end %>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a href="#"><%= t "layout.header.category.student" %></a>
+      </li>
+      <li>
+        <a href="#"><%= t "layout.header.category.self_check" %></a>
+      </li>
+      <li>
+        <a href="#"><%= t "layout.header.category.friend_hint" %></a>
+      </li>
+      <li>
+        <a href="#"><%= t "layout.header.category.manager_user" %></a>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <%= t "layout.header.category.blog" %>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#"><%= t "layout.header.category.list_blog" %></a>
+          </li>
+          <li>
+            <a href="#opening"><%= t "layout.header.category.create_blog" %></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div class="top-menu">
+      <ul class="nav navbar-nav pull-right">
+        <li class="dropdown dropdown-user">
+          <a href="javascript:;" class="dropdown-toggle"
+             data-toggle="dropdown" data-hover="dropdown"
+             data-close-others="true">
+                <span class="username username-hide-on-mobile">
+                  <%= current_admin.name %>
+                </span>
+          </a>
+        </li>
+        <li class="">
+          <%= link_to '<i class="fa fa-sign-out" aria-hidden="true" style="color: #fff"></i>'.html_safe, admin_logout_path, class: "dropdown-toggle" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

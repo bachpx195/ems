@@ -1,0 +1,20 @@
+<div id="create-blog-account-page">
+  <%= render "blocks/alerts" %>
+  <strong>
+    <h1 class="page-title"> <%= t "admin.blog.create.title" %>
+      <small><%= t "admin.blog.create.title_addtion" %></small>
+    </h1>
+  </strong>
+
+  <div class="row">
+    <div class="col-md-12 ">
+      <div class="row">
+        <div class="col-md-12 col-lg-10 col-lg-offset-1">
+          <div class="portlet-body form">
+            <%= render "form", action: "create" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

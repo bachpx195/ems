@@ -31,3 +31,66 @@
 
 en:
   hello: "Hello world"
+
+  login:
+    title: "Admin Login"
+    username: "Username"
+    password: "Password"
+    login_btn: "Login"
+
+  layout:
+    header:
+      category:
+        student: "Student"
+        self_check: "Self check"
+        friend_hint: "Friend hint"
+        manager_user: "Manager User"
+        blog: "Blog"
+        list_blog: "List blog"
+        create_blog: "Create blog"
+
+  admin:
+    blog:
+      create:
+        title: "Create blog"
+        title_addtion: "Add"
+        title: "Title"
+        form:
+          required: "required"
+          title: "Title"
+          category: "Category"
+          time: "Time"
+          public: "Published"
+          setting_public: "public"
+          suggest: "Suggest"
+          setting_suggest: "suggest"
+          intro_image: "Intro image"
+          content: "Body"
+          preview: "Preview"
+          setting_author: "Setting for author"
+          author_name: "Name"
+          open_file: "Open"
+          image_suggest: "required/ <= 2 MB / Only PNG, JPEG"
+          author_position: "Position"
+          author_age: "Age"
+          author_image: "Image"
+          save: "Save"
+          list: "List"
+          position_default: "position default"
+          age_default: "22"
+          name_default: "name default"
+      table:
+        id: "Id"
+        create_at: "Create at"
+        title: "Title"
+        category: "Category"
+        suggest: "Suggest"
+        author: "Author"
+        image: "Image"
+        public: "Public"
+        public_time: "Public time"
+        action: "Action"
+        year: "Year"
+        month: "Month"
+        day: "Day"
+        stop_public: "Stop"

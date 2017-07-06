@@ -1,0 +1,16 @@
+<% if @breadcrumb.present? %>
+  <div class="page-bar">
+    <ul class="page-breadcrumb">
+      <% @breadcrumb.each do |i| %>
+        <% if i[:url].nil? %>
+          <li><span><%= i[:label] %></span></li>
+        <% else %>
+          <li>
+            <%= link_to i[:label], i[:url] %>
+            <i class="fa fa-circle"></i>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -20,7 +20,7 @@ gem "bootstrap-sass", "~> 3.3.6"
 gem "font-awesome-rails"
 
 # Authentication
-# gem "devise"
+gem "devise"
 
 # Upload file
 gem "carrierwave"
@@ -29,8 +29,12 @@ gem "mini_magick"
 # Support
 gem "config"
 
+#editor
+gem "ckeditor"
+
 group :development, :test do
   # Debug
+  gem "byebug"
   gem "pry-rails"
   # Fake data
   gem "faker"

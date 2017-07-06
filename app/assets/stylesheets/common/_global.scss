@@ -1,0 +1,31 @@
+$icon-size: 24px;
+$alert-notice-bg: #36c6d3;
+$dark-blue: #226167;
+$white: #fff;
+$light-pink: #f2dede;
+$strong-pink: #ebccd1;
+$red: #a94442;
+
+.alert-notice {
+  background: $alert-notice-bg;
+  font-weight: bold;
+  color: $white;
+}
+
+.alert {
+  .close {
+    color: $dark-blue;
+    text-indent: 0px;
+  }
+}
+
+.vertical-middle {
+  vertical-align: middle !important;
+}
+
+.alert-alert {
+  color: $red;
+  background-color: $light-pink;
+  border-color: $strong-pink;
+  text-align: center;
+}

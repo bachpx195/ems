@@ -1,0 +1,200 @@
+<%= form_for @blog, url: {action: action}, html: {class: "form-horizontal", multipart: true} do |f| %>
+  <div class="form-group">
+    <span for="title" class="col-sm-1 label label-primary">
+      <%= t "admin.blog.create.form.title" %>
+    </span>
+    <div class="col-sm-11">
+      <%= f.text_field :title, autocomplete: "off", id: "title", class: "form-control" %>
+    </div>
+    <% unless show_errors(@blog, :title).nil? %>
+      <div class="col-sm-11 col-sm-offset-1">
+        <% show_errors(@blog, :title).each do |msg| %>
+          <span class="help-block text-danger"><%= msg %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <span for="title" class="col-sm-1 label label-primary">
+      <%= t "admin.blog.create.form.category" %>
+    </span>
+    <div class="col-sm-2">
+      <%= f.select :category_id, options_for_select(Category.all.map{|s|[s.name, s.id]}),
+        {}, { :class => 'form-control select2_category' } %>
+    </div>
+    <span class="col-sm-1"><%= t "admin.blog.create.form.required" %></span>
+  </div>
+
+  <div class="form-group">
+    <span for="public_time" class="col-sm-1 label label-primary">
+      <%= t "admin.blog.create.form.time" %>
+    </span>
+    <div class="col-sm-3">
+      <%= f.text_field :public_time, autocomplete: "off",
+        id: "public_time", class: "form-control date-picker", placeholder: t("admin.blog.create.form.required") %>
+    </div>
+    <% unless show_errors(@blog, :public_time).nil? %>
+      <div class="col-sm-11 col-sm-offset-1">
+        <% show_errors(@blog, :public_time).each do |msg| %>
+            <span class="help-block text-danger"><%= msg %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <span for="public_status" class="col-sm-1 label label-primary">
+      <%= t "admin.blog.create.form.public" %>
+    </span>
+    <div class="col-sm-11">
+      <label>
+        <%= f.check_box :public_status, {}, checked_value = Settings.blog.status.published,
+          unchecked_value = Settings.blog.status.draft %>   <%= t "admin.blog.create.form.setting_public" %>
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <span for="suggest_status" class="col-sm-1 label label-primary">
+      <%= t "admin.blog.create.form.suggest" %>
+    </span>
+    <div class="col-sm-11">
+      <label>
+        <%= f.check_box :suggest_status, {}, checked_value = Settings.blog.suggest.available,
+          unchecked_value = Settings.blog.suggest.unavailable %> <%= t "admin.blog.create.form.setting_suggest" %>
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <span for="intro_image" class="col-sm-1 label label-primary">
+      <%= t "admin.blog.create.form.intro_image" %>
+    </span>
+    <div class="col-sm-11">
+      <div class="file-field"><%= f.file_field :intro_image, class: "hide" %></div>
+      <div class="image-preview">
+        <%= link_to image_url(f.object.intro_image ? f.object.intro_image : Settings.default_upload_icon) do %>
+          <%= image_tag f.object.intro_image ? f.object.intro_image : Settings.default_upload_icon, class: "img-responsive" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-11 col-sm-offset-1">
+      <p><%= t "admin.blog.create.form.image_suggest" %></p>
+    </div>
+    <%= link_to t("admin.blog.create.form.open_file"), "javascript:void(0)", class: "edit-img col-sm-1 col-sm-offset-1 btn btn-default btn-sm" %>
+    <% unless show_errors(@blog, :intro_image).nil? %>
+      <div class="col-sm-11 col-sm-offset-1">
+        <% show_errors(@blog, :intro_image).each do |msg| %>
+          <span class="help-block text-danger"><%= msg %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <span for="content" class="col-sm-1 label label-primary">
+      <%= t "admin.blog.create.form.content" %>
+    </span>
+    <div class="col-sm-11">
+      <%= link_to t("admin.blog.create.form.preview"), "#", class: "body-preview" %>
+    </div>
+    <div class="col-sm-11 col-sm-offset-1">
+      <%= f.cktext_area :content, rows: 10 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="content" class="col-sm-3">
+      <h3><%= t "admin.blog.create.form.setting_author" %></h3>
+    </label>
+  </div>
+
+  <div class="form-group">
+    <span for="author_name" class="col-sm-1 label label-primary">
+      <%= t "admin.blog.create.form.author_name" %>
+    </span>
+    <div class="col-sm-6">
+      <%= f.text_field :author_name,
+        value: f.object.author_position ? f.object.author_position : t("admin.blog.create.form.name_default"),
+        autocomplete: "off", id: "author_name", class: "form-control" %>
+    </div>
+    <% unless show_errors(@blog, :author_name).nil? %>
+      <div class="col-sm-11 col-sm-offset-1">
+        <% show_errors(@blog, :author_name).each do |msg| %>
+          <span class="help-block text-danger"><%= msg %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <span for="author_position" class="col-sm-1 label label-primary">
+      <%= t "admin.blog.create.form.author_position" %>
+    </span>
+    <div class="col-sm-6">
+      <%= f.text_field :author_position,
+        value: f.object.author_position ? f.object.author_position : t("admin.blog.create.form.position_default"),
+        autocomplete: "off", id: "author_position", class: "form-control" %>
+    </div>
+    <% unless show_errors(@blog, :author_position).nil? %>
+      <div class="col-sm-11 col-sm-offset-1">
+        <% show_errors(@blog, :author_position).each do |msg| %>
+          <span class="help-block text-danger"><%= msg %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <span for="author_age" class="col-sm-1 label label-primary">
+      <%= t "admin.blog.create.form.author_age" %>
+    </span>
+    <div class="col-sm-3">
+      <%= f.text_field :author_age,
+        value: f.object.author_position ? f.object.author_position : t("admin.blog.create.form.age_default"),
+        autocomplete: "off", id: "author_age", class: "form-control" %>
+    </div>
+    <% unless show_errors(@blog, :author_age).nil? %>
+      <div class="col-sm-11 col-sm-offset-1">
+        <% show_errors(@blog, :author_age).each do |msg| %>
+          <span class="help-block text-danger"><%= msg %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <span for="author_image" class="col-sm-1 label label-primary">
+      <%= t "admin.blog.create.form.author_image" %>
+    </span>
+    <div class="col-sm-11">
+      <div class="file-field"><%= f.file_field :author_image, class: "hide" %></div>
+      <div class="image-preview">
+        <%= link_to image_url(f.object.author_image ? f.object.author_image : Settings.default_upload_icon) do %>
+          <%= image_tag f.object.author_image ? f.object.author_image : Settings.default_upload_icon, class: "img-responsive" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-11 col-sm-offset-1">
+      <p><%= t "admin.blog.create.form.image_suggest" %></p>
+    </div>
+    <%= link_to t("admin.blog.create.form.open_file"), "javascript:void(0)", class: "edit-img col-sm-1 col-sm-offset-1 btn btn-default btn-sm" %>
+    <% unless show_errors(@blog, :author_image).nil? %>
+      <div class="col-sm-11 col-sm-offset-1">
+        <% show_errors(@blog, :author_image).each do |msg| %>
+          <span class="help-block text-danger"><%= msg %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <div class="row">
+      <div class="col-sm-offset-5 col-sm-7">
+        <%= link_to t("admin.blog.create.form.list"), admin_blogs_path, class: "btn default" %>
+        <button type="submit" class="btn blue"><%= t "admin.blog.create.form.save" %></button>
+      </div>
+    </div>
+  </div>
+<% end %>

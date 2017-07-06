@@ -3,7 +3,7 @@ blog:
     draft: 0
     published: 1
   suggest:
-    none: 0
+    unavailable: 0
     available: 1
 
 reaction:
@@ -12,3 +12,5 @@ reaction:
     gratitude: 1
     bored: 2
     disappointed: 3
+
+default_upload_icon: upload-icon.png
