@@ -1,0 +1,11 @@
+<% if object.errors.any? %>
+  <div class="alert alert-danger">
+    <strong><%= pluralize(object.errors.count, t("buyer.error")) %>.</strong>
+    <ul>
+      <% errors = object.is_a?(User) ? object.error_list : object.errors.full_messages %>
+      <% errors.each do |msg| %>
+          <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

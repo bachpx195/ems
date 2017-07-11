@@ -1,3 +1,27 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  mount Ckeditor::Engine => '/ckeditor'
+  devise_for :admin, skip: [:sessions, :passwords]
+
+  devise_scope :admin do
+    get "/admin/login" => "admin/sessions#new", as: :admin_session
+    post "/admin/login" => "admin/sessions#create", as: :admin_login
+    get "/admin/logout" => "admin/sessions#destroy", as: :admin_logout
+  end
+
+  authenticated do
+    devise_scope :admin do
+      namespace :admin do
+        resources :blogs, except: [:show]
+        root to: "top_page#show", as: :root
+      end
+    end
+  end
+
+  unauthenticated do
+    devise_scope :admin do
+      namespace :admin do
+        root to: "sessions#new", as: :unauthenticated
+      end
+    end
+  end
 end
