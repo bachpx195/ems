@@ -29,8 +29,15 @@ gem "mini_magick"
 # Support
 gem "config"
 
-#editor
+# Editor
 gem "ckeditor"
+
+# Paginate
+gem "kaminari"
+gem "bootstrap-kaminari-views"
+
+# Search
+gem "ransack"
 
 group :development, :test do
   # Debug

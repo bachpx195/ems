@@ -1,9 +1,10 @@
 class Admin::BlogsController < Admin::BaseAdminController
+  before_action :set_ransack_object, only: [:index]
   before_action :convert_integer_parmas, only: [:create]
   before_action :find_blog, only: [:update]
 
   def index
-    @blogs = Blog.all
+    @blogs = @q.result(distinct: true).page(params[:page]).per(20)
   end
 
   def new
@@ -27,7 +28,7 @@ class Admin::BlogsController < Admin::BaseAdminController
   def update
     if @blog.stop_public_blog
       respond_to do |format|
-        @blogs = Blog.all
+        @blogs = Blog.all.page(params[:page]).per(20)
         flash[:success] = t "created successfully"
         format.js{render layout: false}
       end
@@ -54,6 +55,14 @@ class Admin::BlogsController < Admin::BaseAdminController
     unless @blog
       flash[:danger] = t "errors.blog_not_found"
       redirect_to root_url
+    end
+  end
+
+  def set_ransack_object
+    if params[:q].blank?
+      @q = Blog.none.ransack
+    else
+      @q = Blog.ransack params[:q]
     end
   end
 end

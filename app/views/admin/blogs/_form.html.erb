@@ -1,8 +1,8 @@
 <%= form_for @blog, url: {action: action}, html: {class: "form-horizontal", multipart: true} do |f| %>
   <div class="form-group">
-    <span for="title" class="col-sm-1 label label-primary">
+    <div for="title" class="col-sm-1 label label-primary">
       <%= t "admin.blog.create.form.title" %>
-    </span>
+    </div>
     <div class="col-sm-11">
       <%= f.text_field :title, autocomplete: "off", id: "title", class: "form-control" %>
     </div>

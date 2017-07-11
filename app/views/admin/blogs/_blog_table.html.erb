@@ -28,7 +28,7 @@
         <td><%= blog.public_status %></td>
         <td>
           <input type='hidden' class="form-control date-picker" id="input-blog-<%= blog.id %>" />
-          <p></p>
+          <%= format_date_in_japan blog.public_time %>
           <div class="row">
             <%= link_to t("admin.blog.create.form.list"), "javascript:void(0)", class: "btn default inline-edit", id: "#{blog.id}" %>
             <% if blog.public_status == "published" %>
