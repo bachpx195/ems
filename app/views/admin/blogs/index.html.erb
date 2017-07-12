@@ -22,31 +22,31 @@
                     <label class= "control-label">タイトル</label>
                     <%= f.search_field :title_cont, class:"form-control" %>
                   </div>
-<% if false%>
                   <div class="col-lg-2">
                     <label>カテゴリ</label>
-                    <%= select_tag :category, options_for_select(Category.all.map{|s|[s.name, s.id]}),
-                      {:include_blank => true, :default => nil, class: "form-control"} %>
+                    <%= f.select :category_id_eq,
+                      options_for_select(Category.all.map{|s|[s.name, s.id]}, params[:q].nil? ? "" : params[:q][:category_id_eq]),
+                      {include_blank: true, default: nil}, class: "form-control" %>
                   </div>
 
                   <div class="col-lg-2">
                     <label>公開 / 非公開:</label>
-                    <%= select_tag :isPublic, options_for_select(Blog.public_statuses.map{|s| s}),
-                      {:include_blank => true, :default => nil, class: "form-control"} %>
+                    <%= f.select :public_status_eq,
+                      options_for_select(Blog.public_statuses.map{|s| s}, params[:q].nil? ? "" : params[:q][:public_status_eq]),
+                      {include_blank: true, default: nil}, class: "form-control" %>
                   </div>
 
                   <div class="col-lg-2">
                     <label>オススメ:</label>
-                    <%= select_tag :isSuggest, options_for_select(Blog.suggest_statuses.map{|s| s}),
-                      {:include_blank => true, :default => nil, class: "form-control"} %>
+                    <%= f.select :suggest_status_eq,
+                      options_for_select(Blog.suggest_statuses.map{|s| s}, params[:q].nil? ? "" : params[:q][:suggest_status_eq]),
+                      {include_blank: true, default: nil},  class: "form-control" %>
                   </div>
-
                   <div class="col-lg-2">
                     <label>並べ替え:</label>
-                    <%= select_tag :isSort, options_for_select([["オススメ"],["非オススメ"]]),
-                      {:include_blank => true, :default => nil, class: "form-control"}%>
+                    <%= select_tag :sort_by, options_for_select([["オススメ", "ASC"],["非オススメ", "DESC"]], params[:sort_by]),
+                      {include_blank: true, default: nil, class: "form-control"}%>
                   </div>
-<% end %>
                   <div class="col-lg-1">
                     <br />
                     <div class="btn-group">

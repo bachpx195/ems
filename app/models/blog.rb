@@ -1,4 +1,7 @@
 class Blog < ApplicationRecord
+  scope :sort_by_ASC, ->{order created_at: :asc}
+  scope :sort_by_DESC, ->{order created_at: :desc}
+
   mount_uploader :intro_image, ImageUploader
   mount_uploader :author_image, ImageUploader
   IMAGES_PATH = File.join Rails.root, "public",
