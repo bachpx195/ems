@@ -1,0 +1,27 @@
+<td><%= index.to_i + 1 %></td>
+<td><%= format_date_in_japan blog.created_at %></td>
+<td><%= blog.title %></td>
+<td><%= blog.category.name %></td>
+<td class="text-center">
+  <div id="<%= blog.suggest_status == "available" ? "circle" : "" %>"></div>
+</td>
+<td><%= blog.author_name %></td>
+<td><%= image_tag blog.intro_image, class: "img-thumbnail", size: "10%x10%" %></td>
+<td><%= blog.public_status %></td>
+<td>
+  <input type='hidden' class="form-control datetimepicker1" id="input-blog-<%= blog.id %>" />
+  <span id="text-blog-<%= blog.id %>"><%= format_date_in_japan blog.public_time %></span>
+  <div class="datetime-value hidden" id="<%= blog.public_time %>" value="<%= blog.id %>"></div>
+  <div class="row">
+    <%= link_to t("admin.blog.create.form.list"), "javascript:void(0)", class: "btn default inline-edit", id: "#{blog.id}" %>
+    <% if blog.public_status == "published" %>
+        <%= link_to t("admin.blog.table.stop_public"), admin_blog_path(id: blog.id, params: {type: "stop_public", index: index}),
+          method: :patch,
+          remote: :true, class: "btn btn-danger" %>
+    <% end %>
+  </div>
+</td>
+
+<td>
+  <%= link_to t("admin.blog.create.form.list"), admin_blogs_path, class: "btn default", id: "inline-edit" %>
+</td>

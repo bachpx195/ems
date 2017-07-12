@@ -17,3 +17,5 @@
 //= require ./admin-theme/themes
 //= require ./admin/blogs
 //= require ./lib/jquery.uploadPreview.min
+//= require moment
+//= require bootstrap-datetimepicker

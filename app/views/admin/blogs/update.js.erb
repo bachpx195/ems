@@ -1,2 +1,1 @@
-$('#blog-table').html('<%= j render "admin/blogs/blog_table" %>');
-$('#blog-table-alerts').html('<%= j render "blocks/alerts" %>');
+$("#<%= @blog.id %>").html("<%= j render "admin/blogs/table_blog_detail", blog: @blog, index: params[:index] %>");

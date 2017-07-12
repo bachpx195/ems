@@ -1,11 +1,11 @@
 class Admin::BlogsController < Admin::BaseAdminController
-  before_action :set_ransack_object, only: [:index, :update]
+  before_action :set_ransack_object, only: [:index]
   before_action :convert_integer_parmas, only: [:create]
   before_action :find_blog, only: [:update]
 
   def index
     result = @q.result(distinct: true)
-    if params.has_key? :sort_by
+    if params.has_key? :sort_by && !params[:sort_by].nil?
       result = result.send "sort_by_#{params[:sort_by]}"
     end
     @blogs = result.page(params[:page]).per(20)
@@ -30,16 +30,12 @@ class Admin::BlogsController < Admin::BaseAdminController
   end
 
   def update
-    if @blog.stop_public_blog
-      respond_to do |format|
-        result = @q.result(distinct: true)
-        if params.has_key? :sort_by && !params[:sort_by].nil?
-          result = result.send "sort_by_#{params[:sort_by]}"
-        end
-        @blogs = result.page(params[:page]).per(20)
-        flash[:success] = t "created successfully"
-        format.js{render layout: false}
-      end
+    @blog.stop_public_blog if params[:type] == "stop_public"
+    if params[:type] == "change_time"
+      @blog.update_attribute "public_time", params[:blog]["public_time"]
+    end
+    respond_to do |format|
+      format.js{render layout: false}
     end
   end
 
@@ -69,6 +65,4 @@ class Admin::BlogsController < Admin::BaseAdminController
   def set_ransack_object
     @q = Blog.ransack params[:q]
   end
-
-
 end

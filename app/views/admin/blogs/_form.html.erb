@@ -32,7 +32,7 @@
     </span>
     <div class="col-sm-3">
       <%= f.text_field :public_time, autocomplete: "off",
-        id: "public_time", class: "form-control date-picker", placeholder: t("admin.blog.create.form.required") %>
+        id: "datetimepicker4", class: "form-control date-picker", placeholder: t("admin.blog.create.form.required") %>
     </div>
     <% unless show_errors(@blog, :public_time).nil? %>
       <div class="col-sm-11 col-sm-offset-1">
