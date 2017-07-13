@@ -1,9 +1,8 @@
 #image-preview, .image-preview {
-  width: 120px;
+  width: 150px;
   height: 120px;
   position: relative;
   overflow: hidden;
-  background-color: #3b78c3;
   color: #ecf0f1;
 }
 #image-preview input, .image-preview input{
@@ -78,8 +77,35 @@ input:checked + .slider:before {
 }
 
 #circle {
-  border: 2px solid black !important;
+  border: 1px solid #666 !important;
   width: 20px;
   height: 20px;
   border-radius: 50% !important;
+}
+
+.long-text {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+.nohover {
+  pointer-events: none;
+}
+
+a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, td, textarea, th, ul {
+  border-radius: 5px !important;
+}
+
+.panel-info>.panel-heading {
+  color: #666 !important;
+  border-bottom: .0625rem solid #e2c5c5;
+}
+
+.panel-info> .panel-body {
+  background-color: #e0ebf9;
+  padding-top: 0px;
+}
+
+.button-search {
+  margin-top: 5px;
 }

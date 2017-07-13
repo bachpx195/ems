@@ -1,0 +1,72 @@
+ja:
+  hello: "Hello world"
+
+  login:
+    title: "Admin Login"
+    username: "Username"
+    password: "Password"
+    login_btn: "Login"
+
+  layout:
+    header:
+      category:
+        title: "イーアス管理ツール"
+        student: "生徒"
+        self_check: "セルフチェック"
+        friend_hint: "フレンズヒント"
+        manager_user: "管理ユーザー"
+        logout: "管理ユーザー"
+        blog: "ブログ"
+        list_blog: "ブログ記事一覧"
+        create_blog: "ブログ記事新規作成作成"
+
+  admin:
+    blog:
+      search:
+        draft: "非公開中"
+        published: "公開中"
+      index:
+        title: "ブログ記事一覧"
+      create:
+        title: "ブログ新記事作成"
+        form:
+          required: "required"
+          title: "タイトル"
+          category: "カテゴリ"
+          time: "公開時間"
+          public: "公開設定"
+          setting_public: "公開する"
+          suggest: "オススメ"
+          setting_suggest: "オススメ設定にする"
+          intro_image: "見出し画像"
+          content: "本文"
+          preview: "プレビュー"
+          setting_author: "名前するる"
+          author_name: "名前"
+          open_file: "  開館"
+          image_suggest: "required/ <= 2 MB / Only PNG, JPEG"
+          author_position: "職業"
+          author_age: "年齢"
+          author_image: "画像"
+          save: "確認"
+          list: "一覧"
+          position_default: "塾講師"
+          age_default: "26"
+          name_default: "ナルフォード"
+      table:
+        id: "ID"
+        create_at: "作成時間"
+        title: "タイトル"
+        category: "カテゴリ"
+        suggest: "オススメ"
+        author: "作成者"
+        image: "サムネイル画像"
+        public: "公開 / 非公開"
+        public_time: "公開時間"
+        action: "操作"
+        year: "年"
+        month: "月"
+        day: "日"
+        change_time: "時間変更"
+        stop_public: "停止"
+        edit_blog: "記事編集"

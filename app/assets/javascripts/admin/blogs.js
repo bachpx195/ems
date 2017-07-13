@@ -1,10 +1,12 @@
 $(function() {
-    $('#datetimepicker4').datetimepicker();
+    $('#datetimepicker4').datetimepicker({
+        format: 'YYYY-MM-DD HH:mm'
+    });
 
     var $createBlog = $('#create-blog-account-page');
 
     $createBlog.on('click', '.edit-img', function() {
-        $(this).parent().find('.file-field input').first().click();
+        $(this).parent().parent().find('.file-field input').first().click();
     });
 
     function readURL(input, dom) {

@@ -8,12 +8,12 @@ namespace :db do
       password_confirmation: "123456"
 
     puts "1. create category"
-    Category.create! name: "Study"
-    Category.create! name: "School"
-    Category.create! name: "Family"
+    Category.create! name: "勉強"
+    Category.create! name: "学校"
+    Category.create! name: "家族"
 
     puts "2. create blogs"
-     (1..200).each do |i|
+     (1..900).each do |i|
        Blog.create title: "ブログ管理",
          category_id: 1,
          public_time: "04/07/2017".to_date,

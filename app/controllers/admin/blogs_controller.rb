@@ -1,14 +1,14 @@
 class Admin::BlogsController < Admin::BaseAdminController
   before_action :set_ransack_object, only: [:index]
-  before_action :convert_integer_parmas, only: [:create]
-  before_action :find_blog, only: [:update]
+  before_action :convert_integer_parmas, only: [:create, :update]
+  before_action :find_blog, only: [:update, :edit]
 
   def index
     result = @q.result(distinct: true)
     if params.has_key? :sort_by && !params[:sort_by].nil?
       result = result.send "sort_by_#{params[:sort_by]}"
     end
-    @blogs = result.page(params[:page]).per(20)
+    @blogs = result.includes(:category).page(params[:page]).per(20)
   end
 
   def new
@@ -36,6 +36,15 @@ class Admin::BlogsController < Admin::BaseAdminController
     end
     respond_to do |format|
       format.js{render layout: false}
+      format.html do
+        if @blog.update_attributes blog_params
+          flash[:success] = t "created successfully"
+          redirect_to admin_blogs_path
+        else
+          @blog.valid?
+          render :edit
+        end
+      end
     end
   end
 
@@ -48,10 +57,12 @@ class Admin::BlogsController < Admin::BaseAdminController
   end
 
   def convert_integer_parmas
-    params[:blog][:public_status] = params[:blog][:public_status]
-      .to_i
-    params[:blog][:suggest_status] = params[:blog][:suggest_status]
-      .to_i
+    if params[:blog]
+      params[:blog][:public_status] = params[:blog][:public_status]
+        .to_i
+      params[:blog][:suggest_status] = params[:blog][:suggest_status]
+        .to_i
+    end
   end
 
   def find_blog
