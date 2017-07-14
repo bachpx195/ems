@@ -7,8 +7,6 @@
 //= require ./admin-theme/jquery.slimscroll.min
 //= require ./admin-theme/jquery.blockui.min
 //= require ./admin-theme/bootstrap-switch.min
-//= require ./admin-theme/datatables.min
-//= require ./admin-theme/datatables.bootstrap
 //= require ./admin-theme/morris.min
 //= require ./admin-theme/app.min
 //= require ./admin-theme/layout.min
@@ -16,6 +14,5 @@
 //= require ./admin-theme/quick-nav.min
 //= require ./admin-theme/themes
 //= require ./admin/blogs
-//= require ./lib/jquery.uploadPreview.min
 //= require moment
 //= require bootstrap-datetimepicker

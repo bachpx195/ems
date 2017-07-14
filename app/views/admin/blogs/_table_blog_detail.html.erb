@@ -1,16 +1,16 @@
-<td><%= index.to_i + 1 %></td>
-<td><%= format_date_in_japan blog.created_at %></td>
-<td><%= blog.title %></td>
-<td><%= blog.category.name %></td>
+<td class="text-center"><%= show_index index, params[:page] %></td>
+<td class="text-center"><%= format_date_in_japan blog.created_at %></td>
+<td class="text-center"><%= blog.title %></td>
+<td class="text-center"><%= blog.category.name %></td>
 <td class="text-center">
   <div id="<%= blog.suggest_status == "available" ? "circle" : "" %>"></div>
 </td>
-<td><%= blog.author_name %></td>
-<td><%= image_tag blog.intro_image, class: "img-thumbnail", size: "160x100" %></td>
-<td><%= t "admin.blog.search.#{blog.public_status}" %></td>
+<td class="text-center"><%= blog.author_name %></td>
+<td class="text-center"><%= image_tag blog.intro_image, class: "img-thumbnail", size: "160x100" %></td>
+<td class="text-center"><%= t "admin.blog.search.#{blog.public_status}" %></td>
 <td>
   <input type='hidden' class="form-control datetimepicker1" id="input-blog-<%= blog.id %>" />
-  <span id="text-blog-<%= blog.id %>"><%= format_date_in_japan blog.public_time %></span>
+  <span id="text-blog-<%= blog.id %>" class="text-center"><%= format_date_in_japan blog.public_time %></span>
   <div class="datetime-value hidden" id="<%= blog.public_time %>" value="<%= blog.id %>"></div>
   <div class="row">
     <%= link_to t("admin.blog.table.change_time"), "javascript:void(0)", class: "btn default inline-edit", id: "#{blog.id}" %>

@@ -2,16 +2,11 @@
 *= require font-awesome
 *= require ./admin-theme/bootstrap.min
 *= require ./admin-theme/bootstrap-switch.min
-*= require ./admin-theme/datatables.min
-*= require ./admin-theme/datatables.bootstrap
-*= require ./admin-theme/components.min
-*= require ./admin-theme/plugins.min
-*= require ./admin-theme/layout.min
-*= require ./admin-theme/darkblue.min
-*= require ./admin-theme/custom.min
 *= require ./admin-theme/login.min
 *= require ./admin/layout-admin
 */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "common/global";
 @import "admin/blogs";
 @import 'bootstrap-datetimepicker';

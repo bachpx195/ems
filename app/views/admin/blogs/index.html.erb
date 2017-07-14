@@ -18,14 +18,8 @@
         <div class="col-md-12 ">
           <p></p>
         </div>
-        <div class="form-group">
-          <%= paginate @blogs %>
-        </div>
         <div class="col-sm-12" id="blog-table">
-          <%= render "blog_table" %>
-        </div>
-        <div class="form-group">
-          <%= paginate @blogs %>
+          <%= render "blog_table", inline: true %>
         </div>
       </div>
     </div>

@@ -16,4 +16,11 @@ module ApplicationHelper
       date.strftime "%Y#{year_str}%m#{month_str}%d#{day_str}  %I:%M"
     end
   end
+
+  def show_index index, page = 1
+    if page.nil?
+      page = 1
+    end
+    (page.to_i - 1)*10*2 + index.to_i + 1
+  end
 end

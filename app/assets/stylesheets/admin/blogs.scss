@@ -81,6 +81,7 @@ input:checked + .slider:before {
   width: 20px;
   height: 20px;
   border-radius: 50% !important;
+  margin: 0 auto;
 }
 
 .long-text {
@@ -108,4 +109,21 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
 
 .button-search {
   margin-top: 5px;
+}
+
+.btn-ems {
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  border-color: #ccc;
+  border: 1px solid #ccc;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

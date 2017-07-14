@@ -70,3 +70,5 @@ ja:
         change_time: "時間変更"
         stop_public: "停止"
         edit_blog: "記事編集"
+    static:
+      list_student: "生徒一覧"

@@ -9,6 +9,10 @@ class Admin::BlogsController < Admin::BaseAdminController
       result = result.send "sort_by_#{params[:sort_by]}"
     end
     @blogs = result.includes(:category).page(params[:page]).per(20)
+    respond_to do |format|
+      format.html
+      format.js{render layout: false}
+    end
   end
 
   def new
