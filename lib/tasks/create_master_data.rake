@@ -13,7 +13,7 @@ namespace :db do
     Category.create! name: "家族"
 
     puts "2. create blogs"
-     (1..900).each do |i|
+     (1..21).each do |i|
        Blog.create title: "ブログ管理",
          category_id: 1,
          public_time: "04/07/2017".to_date,

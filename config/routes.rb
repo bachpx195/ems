@@ -24,4 +24,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get "/pages/*page", to: "pages#show"
+  root "pages#show", page: "home"
 end
