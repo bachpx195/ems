@@ -4,21 +4,6 @@
       <a class="navbar-brand" href="#"><%= t "layout.header.category.title" %></a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="">
-        <a href="#"><%= t "layout.header.category.student" %></a>
-      </li>
-      <li>
-        <a href="#"><%= t "layout.header.category.self_check" %></a>
-      </li>
-      <li>
-        <a href="#"><%= t "layout.header.category.friend_hint" %></a>
-      </li>
-      <li>
-        <a href="#"><%= t "layout.header.category.manager_user" %></a>
-      </li>
-      <li>
-        <%= link_to t("layout.header.category.logout"), admin_logout_path %>
-      </li>
       <li class="dropdown <%= "active" if params[:controller] == "admin/blogs" %>">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <%= t "layout.header.category.blog" %>
@@ -31,6 +16,11 @@
             <%= link_to t("layout.header.category.create_blog"), new_admin_blog_path %>
           </li>
         </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <%= link_to t("layout.header.category.logout"), admin_logout_path %>
       </li>
     </ul>
   </div>

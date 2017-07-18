@@ -23,6 +23,12 @@ ja:
   admin:
     blog:
       search:
+        title: "カテゴリ!!!"
+        text: "タイトル"
+        category: "カテゴリ"
+        public: "公開 / 非公開"
+        suggest: "オススメ"
+        order: "並べ替え"
         draft: "非公開中"
         published: "公開中"
       index:
@@ -72,3 +78,7 @@ ja:
         edit_blog: "記事編集"
     static:
       list_student: "生徒一覧"
+
+  time:
+    formats:
+      short: "Loi cai l gi vay"

@@ -14,3 +14,5 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules")
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w(application-admin.scss
   application-admin.js)
+
+Rails.application.config.assets.precompile += %w( ckeditor/filebrowser/thumbs/unknown.gif )

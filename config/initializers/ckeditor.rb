@@ -14,12 +14,12 @@ Ckeditor.setup do |config|
   # Allowed flash file types for upload.
   # Set to nil or [] (empty array) for all file types
   # By default: %w(jpg jpeg png gif tiff)
-  # config.flash_file_types = %w(swf)
+  config.flash_file_types = %w(swf mp4)
 
   # Allowed attachment file types for upload.
   # Set to nil or [] (empty array) for all file types
   # By default: %w(doc docx xls odt ods pdf rar zip tar tar.gz swf)
-  # config.attachment_file_types = %w(doc docx xls odt ods pdf rar zip tar tar.gz swf)
+  config.attachment_file_types = %w(doc docx xls odt ods pdf rar zip tar tar.gz swf mp4)
 
   # Setup authorization to be run as a before filter
   # By default: there is no authorization.

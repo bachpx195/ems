@@ -13,7 +13,7 @@
   <span id="text-blog-<%= blog.id %>" class="text-center"><%= format_date_in_japan blog.public_time %></span>
   <div class="datetime-value hidden" id="<%= blog.public_time %>" value="<%= blog.id %>"></div>
   <div class="row">
-    <%= link_to t("admin.blog.table.change_time"), "javascript:void(0)", class: "btn default inline-edit", id: "#{blog.id}" %>
+    <%= link_to t("admin.blog.table.change_time"), "javascript:void(0)", class: "btn btn-default inline-edit", id: "#{blog.id}" %>
     <% if blog.public_status == "published" %>
         <%= link_to t("admin.blog.table.stop_public"), admin_blog_path(id: blog.id, params: {type: "stop_public", index: index}),
           method: :patch,
@@ -23,5 +23,5 @@
 </td>
 
 <td>
-  <%= link_to t("admin.blog.table.edit_blog"), edit_admin_blog_path(blog), class: "btn default", id: "inline-edit" %>
+  <%= link_to t("admin.blog.table.edit_blog"), edit_admin_blog_path(blog), class: "btn btn-default", id: "inline-edit" %>
 </td>
