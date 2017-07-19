@@ -59,6 +59,7 @@ ja:
           position_default: "塾講師"
           age_default: "26"
           name_default: "ナルフォード"
+          destroy: "削除"
       table:
         id: "ID"
         create_at: "作成時間"
@@ -81,4 +82,4 @@ ja:
 
   time:
     formats:
-      short: "Loi cai l gi vay"
+      short: ""

@@ -19,7 +19,7 @@ module ApplicationHelper
 
   def show_index index, page = 1
     if page.nil?
-      page = 1
+      page = 1 
     end
     (page.to_i - 1)*10*2 + index.to_i + 1
   end

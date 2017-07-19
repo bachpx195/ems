@@ -1,7 +1,7 @@
 class Admin::BlogsController < Admin::BaseAdminController
   before_action :set_ransack_object, only: [:index]
-  before_action :convert_integer_parmas, only: [:create, :update]
-  before_action :find_blog, only: [:update, :edit]
+  before_action :convert_integer_parmas, only: [:create, :update, :show]
+  before_action :find_blog, only: [:update, :edit, :destroy]
 
   def index
     result = @q.result(distinct: true)
@@ -52,7 +52,17 @@ class Admin::BlogsController < Admin::BaseAdminController
     end
   end
 
+  def show
+    @blog = Blog.new blog_params
+    @blog.valid?
+    render :new
+  end
+
   def destroy
+    if @blog.destroy
+      flash[:success] = t "admin.delete_brand.success"
+    end
+    redirect_to admin_blogs_path
   end
 
   private

@@ -1,7 +1,6 @@
 CKEDITOR.editorConfig = function( config )
 {
     config.language = "ja";
-    config.extraPlugins = 'preview';
     config.extraPlugins = 'html5video,widget,widgetselection,lineutils';
     // Define changes to default configuration here. For example:
     // config.language = "fr";
@@ -33,7 +32,7 @@ CKEDITOR.editorConfig = function( config )
 
     // Toolbar groups configuration.
     config.toolbar = [
-        { name: 'document', items: [ 'Source', '-', 'Preview' ] },
+        { name: 'document', items: [ 'Source'] },
         { name: "clipboard", groups: [ "clipboard", "undo" ], items: [ "Cut", "Copy", "Paste", "PasteText", "PasteFromWord", "-", "Undo", "Redo" ] },
         // { name: "editing", groups: [ "find", "selection", "spellchecker" ], items: [ "Find", "Replace", "-", "SelectAll", "-", "Scayt" ] },
         // { name: "forms", items: [ "Form", "Checkbox", "Radio", "TextField", "Textarea", "Select", "Button", "ImageButton", "HiddenField" ] },

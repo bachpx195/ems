@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   authenticated do
     devise_scope :admin do
       namespace :admin do
-        resources :blogs, except: [:show]
+        resources :blogs do
+          collection do
+            get :confirmation, action: "show"
+          end
+        end
         root to: "top_page#show", as: :root
       end
     end

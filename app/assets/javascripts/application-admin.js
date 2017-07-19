@@ -15,6 +15,7 @@
 //= require ./admin-theme/themes
 //= require ./admin/blogs
 //= require moment
+//= require moment/ja
 //= require bootstrap-datetimepicker
 //= require ./ckeditor/config
 //= require ./ckeditor/plugins/html5video/plugin
