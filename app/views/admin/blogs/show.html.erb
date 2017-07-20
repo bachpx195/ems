@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row marketing">
+    <div class="col-lg-12">
+      <h4><b><%= @blog.title %></b></h4>
+      <hr/>
+      <div>
+        <h4>Success - your order is confirmed!</h4>
+        <div class="row">
+          <div class="col-xs-6">
+            <address>
+              <strong><%= @blog.title %></strong><br>
+              <h5><%= t "admin.blog.create.form.category" %>: <%= @blog.category.name %></h5>
+              <h5><%= t "admin.blog.create.form.time" %>: <%= format_date_in_japan @blog.created_at %></h5>
+              <% if @blog.published? %>
+                <h5><%= t "admin.blog.create.form.setting_public" %></h5>
+              <% end %>
+              <% if @blog.available? %>
+                <h5><%= t "admin.blog.create.form.setting_suggest" %></h5>
+              <% end %>
+              <h5>
+                <%= t "admin.blog.create.form.intro_image" %>:
+                <%= image_tag @blog.intro_image, class: "img-thumbnail", size: "160x100" %>
+              </h5>
+            </address>
+          </div>
+          <div class="col-xs-6">
+            <address>
+              <strong><%= t "admin.blog.create.form.setting_author" %></strong><br>
+              <h5><%= @blog.author_name %></h5>
+              <h5><%= t "admin.blog.create.form.author_age" %>: <%= @blog.author_age %></h5>
+              <h5><%= t "admin.blog.create.form.author_position" %>: <%= @blog.author_position %></h5>
+              <%= image_tag @blog.author_image, class: "img-thumbnail", size: "160x100" %>
+            </address>
+          </div>
+        </div>
+        <hr/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <center><p><span class="glyphicon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+              content</p></center>
+          </div>
+          <div class="panel-body">
+            <p><%= raw(@blog.content) %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-offset-5 col-sm-1">
+      <%= link_to t("admin.blog.create.form.list"), admin_blogs_path, class: "btn btn-default" %>
+    </div>
+    <div class="col-sm-1">
+      <button type="submit" class="btn btn-info"><%= t "admin.blog.create.form.save" %></button>
+    </div>
+  </div>
+</div>

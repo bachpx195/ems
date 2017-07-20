@@ -1,5 +1,5 @@
-<%= form_for @blog, method: :get, url: confirmation_admin_blogs_path, html: {class: "form-horizontal", multipart: true} do |f| %>
-  <%= hidden_field_tag 'action', action %>
+<%= form_for @blog, url: {action: action}, html: {class: "form-horizontal", multipart: true} do |f| %>
+  <%= hidden_field_tag 'type_action', action %>
   <div class="form-group">
     <span class="col-sm-1 btn btn-primary nohover" id=title"><%= t "admin.blog.create.form.title" %></span>
     <div class="col-sm-11">

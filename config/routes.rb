@@ -12,9 +12,7 @@ Rails.application.routes.draw do
     devise_scope :admin do
       namespace :admin do
         resources :blogs do
-          collection do
-            get :confirmation, action: "show"
-          end
+          resource :steps, controller: "blogs/steps", only: [:show, :update]
         end
         root to: "top_page#show", as: :root
       end

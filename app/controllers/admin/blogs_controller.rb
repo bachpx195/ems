@@ -22,8 +22,8 @@ class Admin::BlogsController < Admin::BaseAdminController
   def create
     @blog = Blog.new blog_params
     if @blog.save
-      flash[:success] = t "created successfully"
-      redirect_to admin_blogs_path
+      @type_action = params[:type_action]
+      redirect_to admin_blog_steps_path(@blog)
     else
       @blog.valid?
       render :new
@@ -42,8 +42,8 @@ class Admin::BlogsController < Admin::BaseAdminController
       format.js{render layout: false}
       format.html do
         if @blog.update_attributes blog_params
-          flash[:success] = t "created successfully"
-          redirect_to admin_blogs_path
+          @type_action = params[:type_action]
+          redirect_to(admin_blog_steps_path(@blog, @action))
         else
           @blog.valid?
           render :edit
@@ -53,9 +53,6 @@ class Admin::BlogsController < Admin::BaseAdminController
   end
 
   def show
-    @blog = Blog.new blog_params
-    @blog.valid?
-    render :new
   end
 
   def destroy

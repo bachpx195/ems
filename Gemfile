@@ -44,6 +44,9 @@ gem "ransack"
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
+# multi-form
+gem "wicked"
+
 group :development, :test do
   # Debug
   gem "byebug"
