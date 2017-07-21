@@ -24,6 +24,7 @@ class Blog < ApplicationRecord
   validates :author_position, presence: true
   validates_length_of :author_position, maximum: 32
   validates :author_age, presence: true
+  validates :content, presence: true
   validates_length_of :author_age, maximum: 32
   validate :image_size_validation
 
@@ -40,10 +41,10 @@ class Blog < ApplicationRecord
   private
   def image_size_validation
     if intro_image.size > 2.megabytes
-      errors.add(:intro_image, "Image should be less than 1MB")
+      errors.add(:intro_image, t("errors.size_image"))
     end
     if author_image.size > 2.megabytes
-      errors.add(:author_image, "Image should be less than 1MB")
+      errors.add(:author_image, t("errors.size_image"))
     end
   end
 end

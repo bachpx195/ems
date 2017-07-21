@@ -1,6 +1,7 @@
 ja:
   errors:
     blog_not_found: "blog not found"
+    size_image: "フアイルサイズは2M團以内てす'"
 
   updated:
     successfully: ""
@@ -66,6 +67,7 @@ ja:
           age_default: "26"
           name_default: "ナルフォード"
           destroy: "削除"
+          back: "背中"
       table:
         id: "ID"
         create_at: "作成時間"
@@ -101,3 +103,5 @@ ja:
               blank: "カテゴリを瀋択して下さい"
             intro_image:
               blank: "公闔日時を設足しT下さい'"
+            content:
+              blank: "本文は2MB以内て作成しT下さ"
