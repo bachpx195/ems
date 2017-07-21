@@ -10,9 +10,9 @@ class Admin::Blogs::StepsController < Admin::BaseAdminController
 
   def update
     if params[:type_action] == "update"
-      flash[:success] = t "created successfully"
+      flash[:success] = t "updated.successfully"
     else
-      flash[:success] = t "created successfully"
+      flash[:success] = t "created.successfully"
     end
     redirect_to admin_blogs_path
   end

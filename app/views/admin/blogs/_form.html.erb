@@ -3,7 +3,7 @@
   <div class="form-group">
     <span class="col-sm-1 btn btn-primary nohover" id=title"><%= t "admin.blog.create.form.title" %></span>
     <div class="col-sm-11">
-      <%= f.text_field :title, autocomplete: "off", id: "title", class: "form-control" %>
+      <%= f.text_field :title, autocomplete: "off", id: "title", class: "form-control", placeholder: "必須255文字以内" %>
     </div>
     <% unless show_errors(@blog, :title).nil? %>
       <div class="col-sm-11 col-sm-offset-1">
@@ -30,7 +30,7 @@
     </span>
     <div class="col-sm-3">
       <%= f.text_field :public_time, value: f.object.public_time ? f.object.public_time : "",
-        autocomplete: "off",
+        autocomplete: "off", placeholder: "必須",
         id: "datetimepicker4", class: "form-control date-picker" %>
     </div>
     <% unless show_errors(@blog, :public_time).nil? %>
@@ -79,7 +79,7 @@
       </div>
     </div>
     <div class="col-sm-11 col-sm-offset-1">
-      <%= link_to t("admin.blog.create.form.open_file"), "javascript:void(0)", class: "edit-img btn btn-default btn-xs" %>
+      <%= link_to t("admin.blog.create.form.open_file"), "javascript:void(0)", class: "edit-img btn btn-default" %>
     </div>
     <% unless show_errors(@blog, :intro_image).nil? %>
       <div class="col-sm-11 col-sm-offset-1">
@@ -176,7 +176,7 @@
       </div>
     </div>
     <div class="col-sm-11 col-sm-offset-1">
-      <%= link_to t("admin.blog.create.form.open_file"), "javascript:void(0)", class: "edit-img btn btn-default btn-xs" %>
+      <%= link_to t("admin.blog.create.form.open_file"), "javascript:void(0)", class: "edit-img btn btn-default" %>
     </div>
     <% unless show_errors(@blog, :author_image).nil? %>
       <div class="col-sm-11 col-sm-offset-1">

@@ -1,4 +1,10 @@
 ja:
+  errors:
+    blog_not_found: "blog not found"
+
+  updated:
+    successfully: ""
+
   hello: "Hello world"
 
   login:
@@ -49,7 +55,7 @@ ja:
           preview: "プレビュー"
           setting_author: "名前するる"
           author_name: "名前"
-          open_file: "  開館"
+          open_file: "  闔く"
           image_suggest: "required/ <= 2 MB / Only PNG, JPEG"
           author_position: "職業"
           author_age: "年齢"
@@ -83,3 +89,15 @@ ja:
   time:
     formats:
       short: ""
+
+  activerecord:
+    errors:
+      models:
+        blog:
+          attributes:
+            title:
+              blank: "タイ卜ルを人力して下さい"
+            public_time:
+              blank: "カテゴリを瀋択して下さい"
+            intro_image:
+              blank: "公闔日時を設足しT下さい'"
