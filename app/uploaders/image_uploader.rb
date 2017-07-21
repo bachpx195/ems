@@ -8,6 +8,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
+  IMAGES_PATH = File.join Rails.root, "public", "uploads/blog_images", "image"
+
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir

@@ -6,6 +6,7 @@ class Admin::BlogsController < Admin::BaseAdminController
   def index
     result = @q.result(distinct: true)
     if params.has_key? :sort_by && !params[:sort_by].nil?
+      byebug
       result = result.send "sort_by_#{params[:sort_by]}"
     end
     @blogs = result.includes(:category).page(params[:page]).per(20)

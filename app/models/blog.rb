@@ -4,8 +4,6 @@ class Blog < ApplicationRecord
 
   mount_uploader :intro_image, ImageUploader
   mount_uploader :author_image, ImageUploader
-  IMAGES_PATH = File.join Rails.root, "public",
-    "uploads/blog_images", "image"
 
   BLOG_ATTRS = [:id, :title, :category_id, :public_time, :public_status,
     :suggest_status, :intro_image,
