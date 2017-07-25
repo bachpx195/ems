@@ -1,7 +1,14 @@
 ja:
+  alert:
+    blog:
+      create: "断しいブaグ記事を作成しました．"
+      update: "ブDグ記事を更新しました"
+      delete: "ブDク配事を昌」畦しまLた．"
+
   errors:
     blog_not_found: "blog not found"
-    size_image: "フアイルサイズは2M團以内てす'"
+    size_image: "フアイルサイズは2M團以内てす。"
+    extenstion: "不正なファイル形式てす。"
 
   updated:
     successfully: ""
@@ -22,7 +29,7 @@ ja:
         self_check: "セルフチェック"
         friend_hint: "フレンズヒント"
         manager_user: "管理ユーザー"
-        logout: "管理ユーザー"
+        logout: "ログイン"
         blog: "ブログ"
         list_blog: "ブログ記事一覧"
         create_blog: "ブログ記事新規作成作成"
@@ -30,7 +37,7 @@ ja:
   admin:
     blog:
       search:
-        title: "カテゴリ!!!"
+        title: "検索フィルター"
         text: "タイトル"
         category: "カテゴリ"
         public: "公開 / 非公開"
@@ -54,7 +61,7 @@ ja:
           intro_image: "見出し画像"
           content: "本文"
           preview: "プレビュー"
-          setting_author: "名前するる"
+          setting_author: "投稿者設定"
           author_name: "名前"
           open_file: "  闔く"
           image_suggest: "required/ <= 2 MB / Only PNG, JPEG"
@@ -85,8 +92,11 @@ ja:
         change_time: "時間変更"
         stop_public: "停止"
         edit_blog: "記事編集"
+        public_blog: "出版"
     static:
-      list_student: "生徒一覧"
+      blog: "ブログ"
+      list_blog: "記事一覧"
+      create_blog: "記事作成"
 
   time:
     formats:
@@ -98,10 +108,19 @@ ja:
         blog:
           attributes:
             title:
-              blank: "タイ卜ルを人力して下さい"
+              blank: "タイ卜ルを人力して下さい。"
+              too_long: "255文宇以内て人力して下さい。"
             public_time:
-              blank: "カテゴリを瀋択して下さい"
+              blank: "カテゴリを瀋択して下さい。"
             intro_image:
-              blank: "公闔日時を設足しT下さい'"
+              blank: "見出し画攣を設足して下さい。"
             content:
               blank: "本文は2MB以内て作成しT下さ"
+            author_image:
+              blank: "本文は2MB以内て作成しT下さ"
+            author_name:
+              blank: "タイ卜ルを人力して下さい。"
+              too_long: "255文宇以内て人力して下さい。"
+            author_position:
+              blank: "タイ卜ルを人力して下さい。"
+              too_long: "255文宇以内て人力して下さい。"

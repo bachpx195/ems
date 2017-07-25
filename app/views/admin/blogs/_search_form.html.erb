@@ -1,14 +1,14 @@
 <div class="form-group">
   <div class="panel panel-info">
     <div class="panel-heading">
-      <h3 class="panel-title"><%= t "admin.blog.search.title" %></h3>
+      <h2><%= t "admin.blog.search.title" %></h2>
     </div>
     <div class="panel-body">
-      <%= search_form_for @q, url: admin_blogs_path,  html: {method: :get}, remote: true do |f| %>
+      <%= search_form_for @q, url: admin_blogs_path,  html: {method: :get} do |f| %>
         <div class="form-group">
           <div class="col-lg-3">
             <label class= "control-label"><%= t "admin.blog.search.text" %></label>
-            <%= f.search_field :title_cont, class:"form-control", placeholder: "something" %>
+            <%= f.search_field :title_cont, class:"form-control" %>
           </div>
           <div class="col-lg-2">
             <label><%= t "admin.blog.search.category" %></label>

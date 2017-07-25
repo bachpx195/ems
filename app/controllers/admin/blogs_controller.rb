@@ -5,8 +5,7 @@ class Admin::BlogsController < Admin::BaseAdminController
 
   def index
     result = @q.result(distinct: true)
-    if params.has_key? :sort_by && !params[:sort_by].nil?
-      byebug
+    if params.has_key?(:sort_by) && !params[:sort_by].blank?
       result = result.send "sort_by_#{params[:sort_by]}"
     end
     @blogs = result.includes(:category).page(params[:page]).per(20)
@@ -36,9 +35,9 @@ class Admin::BlogsController < Admin::BaseAdminController
 
   def update
     @blog.stop_public_blog if params[:type] == "stop_public"
-    if params[:type] == "change_time"
-      @blog.update_attribute "public_time", params[:blog]["public_time"]
-    end
+    @blog.public_blog if params[:type] == "public_blog"
+    @blog.update_attribute("public_time", params[:blog]["public_time"]) if params[:type] == "change_time"
+
     respond_to do |format|
       format.js{render layout: false}
       format.html do
@@ -58,7 +57,7 @@ class Admin::BlogsController < Admin::BaseAdminController
 
   def destroy
     if @blog.destroy
-      flash[:success] = t "admin.delete_brand.success"
+      flash[:success] = t "alert.blog.delete"
     end
     redirect_to admin_blogs_path
   end

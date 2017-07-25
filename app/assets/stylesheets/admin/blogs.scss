@@ -8,6 +8,7 @@
     }
   }
 }
+
 #image-preview input, .image-preview input{
   line-height: 200px;
   font-size: 200px;
@@ -15,6 +16,7 @@
   opacity: 0;
   z-index: 10;
 }
+
 #image-preview label, .image-preview label {
 
 }
@@ -96,18 +98,23 @@ input:checked + .slider:before {
   pointer-events: none;
 }
 
-a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, td, textarea, th, ul {
+a, button, code, label, li, p, pre, textarea, th, ul {
   border-radius: 5px !important;
 }
 
-.panel-info>.panel-heading {
-  color: #666 !important;
-  border-bottom: .0625rem solid #e2c5c5;
-}
+.panel-info {
+  border-color: #eff5f7;
 
-.panel-info> .panel-body {
-  background-color: #e0ebf9;
-  padding-top: 0px;
+  .panel-heading {
+    color: #666 !important;
+    border-bottom: .0625rem solid #e2e1e1;
+    background-color: #f0faff;
+  }
+
+  .panel-body {
+    background-color: #f0faff;
+    padding-top: 0px;
+  }
 }
 
 .button-search {
@@ -115,6 +122,7 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
 }
 
 .btn-ems {
+  background-color: #f0faff !important;
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
@@ -129,6 +137,9 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  &:hover {
+    border: 1px solid #403d3d;
+  }
 }
 
 .btn-info-ems {
@@ -147,4 +158,8 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
 
 .text-danger-ems {
   color: #a94442;
+}
+
+.author-setting-ems {
+  margin-left: -45px;
 }

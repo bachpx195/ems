@@ -13,4 +13,4 @@ reaction:
     bored: 2
     disappointed: 3
 
-default_upload_icon: upload-icon.png
+default_upload_icon: default.png

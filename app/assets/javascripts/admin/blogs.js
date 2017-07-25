@@ -7,6 +7,7 @@ $(function() {
 
     $createBlog.on('click', '.edit-img', function() {
         $(this).parent().parent().find('.file-field input').first().click();
+        $(this).parent().parent().find('.image-preview a').first().removeClass("hide");
     });
 
     function readURL(input, dom) {
@@ -14,8 +15,11 @@ $(function() {
             var reader = new FileReader();
 
             reader.onload = function (e) {
+                dom.parent().next().find('img').first().attr('src', "");
+                dom.parent().next().find('img').first().removeClass("hide")
                 dom.parent().next().find('img').first().attr('src', e.target.result);
-                dom.parent().next().find('a').first().attr('href', e.target.result);
+                dom.parent().parent().next().find('img').first().attr('src', e.target.result);
+                console.log(dom.parent().next().find('img').first().prop("tagName"));
             };
             reader.readAsDataURL(input.files[0]);
         }
@@ -25,10 +29,9 @@ $(function() {
         readURL(this, $(this));
     });
 
-    $('.inline-edit').on('click', function (e) {
-        e.preventDefault();
-
+    function theFunction() {
         var idBlog = $(this).parent().parent().find("input").attr('id');
+        alert(idBlog);
         var idBlogText = $(this).parent().parent().find("span").attr('id');
         var dateTime = $(this).parent().parent().find(".datetime-value").attr('id');
         var id = $(this).parent().parent().find(".datetime-value").attr('value');
@@ -50,7 +53,7 @@ $(function() {
                 data: { blog: { public_time:  datetime}, type: "change_time" }
             })
         });
-    });
+    };
 
     $('#preview-button').on('click', function (e) {
         e.preventDefault();
@@ -75,14 +78,7 @@ $(function() {
 
             bodyHtml += '>';
 
-            sHTML = editor.config.docType + '<html dir="' + editor.config.contentsLangDirection + '">' +
-                '<head>' +
-                baseTag +
-                '<title>' + editor.lang.preview.preview + '</title>' +
-                CKEDITOR.tools.buildStyleHtml( editor.config.contentsCss ) +
-                '</head>' + bodyHtml +
-                editor.getData() +
-                '</body></html>';
+            sHTML = editor.getData()
         }
 
         $('#preview-content').html(sHTML);

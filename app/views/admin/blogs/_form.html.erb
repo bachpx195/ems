@@ -75,20 +75,23 @@
     <span for="intro_image" class="col-sm-1 btn btn-primary nohover long-text">
       <%= t "admin.blog.create.form.intro_image" %>
     </span>
-    <div class="col-sm-11">
-      <div class="file-field"><%= f.file_field :intro_image, class: "hide" %></div>
-      <div class="image-preview">
-        <%= link_to image_url(f.object.intro_image_url ? f.object.intro_image_url : Settings.default_upload_icon) do %>
-          <%= image_tag(f.object.intro_image_url ? f.object.intro_image_url : "upload-icon.png", class: "img-responsive") %>
-        <% end %>
+      <div class="col-sm-11">
+        <div class="file-field">
+          <%= f.file_field :intro_image, class: "hide" %>
+        </div>
+        <div class="image-preview">
+          <%= link_to "#",
+          class: f.object.intro_image_url ? "" : "hide" do %>
+            <%= image_tag f.object.intro_image_url ? f.object.intro_image_url: "", class: "img-responsive" %>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-11 col-sm-offset-1">
-      <p>必測/2MB以内/PNG,JPEGのみ</p>
-    </div>
-    <div class="col-sm-11 col-sm-offset-1">
-      <%= link_to t("admin.blog.create.form.open_file"), "javascript:void(0)", class: "edit-img btn btn-default" %>
-    </div>
+      <div class="col-sm-11 col-sm-offset-1">
+        <p>必測/2MB以内/PNG,JPEGのみ</p>
+      </div>
+      <div class="col-sm-11 col-sm-offset-1">
+        <%= link_to t("admin.blog.create.form.open_file"), "javascript:void(0)", class: "edit-img btn btn-default" %>
+      </div>
     <% unless show_errors(@blog, :intro_image).nil? %>
       <div class="col-sm-11 col-sm-offset-1">
         <% show_errors(@blog, :intro_image).each do |msg| %>
@@ -117,13 +120,7 @@
         </div>
     <% end %>
   </div>
-
-  <div class="form-group">
-    <label for="content" class="col-sm-2">
-      <h3><%= t "admin.blog.create.form.setting_author" %></h3>
-    </label>
-  </div>
-
+  <h3 class="author-setting-ems"><%= t "admin.blog.create.form.setting_author" %></h3>
   <div class="form-group">
     <span for="author_name" class="col-sm-1 btn btn-primary nohover">
       <%= t "admin.blog.create.form.author_name" %>
@@ -186,7 +183,7 @@
       <div class="file-field"><%= f.file_field :author_image, class: "hide" %></div>
       <div class="image-preview">
         <%= link_to image_url(f.object.author_image_url ? f.object.author_image_url : Settings.default_upload_icon) do %>
-          <%= image_tag f.object.author_image_url ? f.object.author_image_url : Settings.default_upload_icon, class: "img-responsive" %>
+            <%= image_tag f.object.author_image_url ? f.object.author_image_url : Settings.default_upload_icon, class: "img-responsive" %>
         <% end %>
       </div>
     </div>

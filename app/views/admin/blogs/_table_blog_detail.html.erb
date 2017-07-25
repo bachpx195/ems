@@ -12,16 +12,21 @@
   <input type='hidden' class="form-control datetimepicker1" id="input-blog-<%= blog.id %>" />
   <span id="text-blog-<%= blog.id %>" class="text-center"><%= format_date_in_japan blog.public_time %></span>
   <div class="datetime-value hidden" id="<%= blog.public_time %>" value="<%= blog.id %>"></div>
+  <p></p>
   <div class="row">
-    <%= link_to t("admin.blog.table.change_time"), "javascript:void(0)", class: "btn btn-default inline-edit", id: "#{blog.id}" %>
+    <a onclick="return theFunction();"   class="btn btn-default inline-edit" id="<%= blog.id %>" ><%= t("admin.blog.table.change_time") %></a>
     <% if blog.public_status == "published" %>
-        <%= link_to t("admin.blog.table.stop_public"), admin_blog_path(id: blog.id, params: {type: "stop_public", index: index}),
+      <%= link_to t("admin.blog.table.stop_public"), admin_blog_path(id: blog.id, params: {type: "stop_public", index: index}),
+        method: :patch,
+        remote: :true, class: "btn btn-danger" %>
+    <% end %>
+    <% if blog.public_status == "draft" %>
+        <%= link_to t("admin.blog.table.public_blog"), admin_blog_path(id: blog.id, params: {type: "public_blog", index: index}),
           method: :patch,
-          remote: :true, class: "btn btn-danger" %>
+          remote: :true, class: "btn btn-success" %>
     <% end %>
   </div>
 </td>
-
 <td>
   <%= link_to t("admin.blog.table.edit_blog"), edit_admin_blog_path(blog), class: "btn btn-default", id: "inline-edit" %>
 </td>
