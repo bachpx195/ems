@@ -1,0 +1,28 @@
+<div class="container">
+  <% if @comments %>
+    <% @comments.each do |comment| %>
+      <div class="row">
+        <div class="col-sm-1">
+          <div class="thumbnail">
+            <img class="img-responsive user-photo" src="<%= comment.user.avatar_url %>">
+          </div>
+        </div>
+
+        <div class="col-sm-7">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong><%= comment.user.username %></strong>
+                <span class="text-muted"><%= format_date_in_japan comment.created_at %></span>
+                <%= link_to t("admin.blog.create.form.destroy"), admin_blog_comment_path(@blog, comment), method: :delete,
+                  remote: :true,
+                  class: "col-sm-offset-7 btn btn-danger" %>
+            </div>
+            <div class="panel-body">
+              <%= comment.content %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

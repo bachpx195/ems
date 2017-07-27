@@ -3,7 +3,7 @@ $(function() {
         format: 'YYYY-MM-DD HH:mm'
     });
 
-    var $createBlog = $('#create-blog-account-page');
+    var $createBlog = $('#create-blogs-account-page');
 
     $createBlog.on('click', '.edit-img', function() {
         $(this).parent().parent().find('.file-field input').first().click();
@@ -29,31 +29,44 @@ $(function() {
         readURL(this, $(this));
     });
 
-    function theFunction() {
+    $('#body-blogs').on('click','.inline-edit',function (event) {
+        $(this).addClass("hide");
+        $(this).parent().find(".done-edit").first().removeClass("hide");
         var idBlog = $(this).parent().parent().find("input").attr('id');
-        alert(idBlog);
         var idBlogText = $(this).parent().parent().find("span").attr('id');
         var dateTime = $(this).parent().parent().find(".datetime-value").attr('id');
         var id = $(this).parent().parent().find(".datetime-value").attr('value');
         idBlogStr = '#' + idBlog;
         idBlogTextStr = '#' + idBlogText;
+        idBlogDatePicker = '.datetimepicker' + id;
         $(idBlogStr).prop("type","text");
         $(idBlogTextStr).hide();
-        $('.datetimepicker1').datetimepicker({
+        $(idBlogDatePicker).datetimepicker({
             format: 'YYYY-MM-DD HH:mm',
             defaultDate: moment(dateTime, "YYYY-MM-DD HH:mm")
         });
-        $("input").blur(function(){
-            var datetime = $(this).val();
-            $.ajax({
-                url: 'blogs/' + id,
-                // dataType: 'json',
-                dataType: 'script',
-                method: "patch",
-                data: { blog: { public_time:  datetime}, type: "change_time" }
-            })
+        $(idBlogStr).on("dp.change",function(){
+
         });
-    };
+        event.preventDefault()
+    });
+
+    $('#body-blogs').on('click','.done-edit',function (event) {
+        var idBlog = $(this).parent().parent().find("input").attr('id');
+        var id = $(this).parent().parent().find(".datetime-value").attr('value');
+        idBlogStr = '#' + idBlog;
+        var datetime = $(this).parent().parent().find(idBlogStr).val();
+        $.ajax({
+            url: 'blogs/' + id,
+            cache: true,
+            dataType: 'script',
+            method: "patch",
+            data: { blog: { public_time:  datetime}, type: "change_time" },
+            success: function(){
+            }
+        })
+        event.preventDefault()
+    });
 
     $('#preview-button').on('click', function (e) {
         e.preventDefault();

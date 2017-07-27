@@ -32,7 +32,7 @@ ja:
         logout: "ログイン"
         blog: "ブログ"
         list_blog: "ブログ記事一覧"
-        create_blog: "ブログ記事新規作成作成"
+        create_blog: "ブログ記事新規作成"
 
   admin:
     blog:
@@ -45,6 +45,8 @@ ja:
         order: "並べ替え"
         draft: "非公開中"
         published: "公開中"
+        unavailable: "非オススメ"
+        available: "オススメ"
       index:
         title: "ブログ記事一覧"
       create:
@@ -93,6 +95,7 @@ ja:
         stop_public: "停止"
         edit_blog: "記事編集"
         public_blog: "出版"
+        comment: "解説一覧"
     static:
       blog: "ブログ"
       list_blog: "記事一覧"

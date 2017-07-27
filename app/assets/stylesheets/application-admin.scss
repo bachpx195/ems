@@ -1,12 +1,10 @@
 /* ...
 *= require font-awesome
-*= require ./admin-theme/bootstrap.min
-*= require ./admin-theme/bootstrap-switch.min
-*= require ./admin-theme/login.min
 *= require ./admin/layout-admin
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "common/global";
 @import "admin/blogs";
+@import "admin/blogs/comment";
 @import 'bootstrap-datetimepicker';

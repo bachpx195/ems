@@ -12,11 +12,11 @@
       <th><%= t "admin.blog.table.author" %></th>
       <th><%= t "admin.blog.table.image" %></th>
       <th><%= t "admin.blog.table.public" %></th>
-      <th><%= t "admin.blog.table.public_time" %></th>
-      <th><%= t "admin.blog.table.action" %></th>
+      <th width="160"><%= t "admin.blog.table.public_time" %></th>
+      <th width="100"><%= t "admin.blog.table.action" %></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="body-blogs">
     <% @blogs.each_with_index do |blog, index| %>
       <tr id="<%= blog.id %>">
         <%= render "table_blog_detail", blog: blog, index: index %>

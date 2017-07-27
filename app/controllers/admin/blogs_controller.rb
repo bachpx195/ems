@@ -1,6 +1,6 @@
 class Admin::BlogsController < Admin::BaseAdminController
   before_action :set_ransack_object, only: [:index]
-  before_action :convert_integer_parmas, only: [:create, :update, :show]
+  before_action :convert_integer_parmas, only: [:create, :update, :confirm]
   before_action :find_blog, only: [:update, :edit, :destroy]
 
   def index
@@ -23,7 +23,7 @@ class Admin::BlogsController < Admin::BaseAdminController
     @blog = Blog.new blog_params
     if @blog.save
       @type_action = params[:type_action]
-      redirect_to admin_blog_steps_path(@blog)
+      redirect_to confirm_admin_blogs_path(id: @blog.id, type: "create")
     else
       @blog.valid?
       render :new
@@ -43,7 +43,7 @@ class Admin::BlogsController < Admin::BaseAdminController
       format.html do
         if @blog.update_attributes blog_params
           @type_action = params[:type_action]
-          redirect_to(admin_blog_steps_path(@blog, @action))
+          redirect_to confirm_admin_blogs_path(id: @blog.id, type: "update")
         else
           @blog.valid?
           render :edit
@@ -52,14 +52,23 @@ class Admin::BlogsController < Admin::BaseAdminController
     end
   end
 
-  def show
-  end
-
   def destroy
     if @blog.destroy
       flash[:success] = t "alert.blog.delete"
     end
     redirect_to admin_blogs_path
+  end
+
+  def confirm
+    @blog = Blog.find_by id: params[:id] if params.has_key?(:id)
+    if params[:type_action] == "update"
+      flash[:success] = t "alert.blog.update"
+      redirect_to admin_blogs_path
+    end
+    if params[:type_action] == "create"
+      flash[:success] = t "alert.blog.create"
+      redirect_to admin_blogs_path
+    end
   end
 
   private
@@ -79,7 +88,6 @@ class Admin::BlogsController < Admin::BaseAdminController
   def find_blog
     @blog = Blog.find_by id: params[:id]
     unless @blog
-      flash[:danger] = t "errors.blog_not_found"
       redirect_to root_url
     end
   end

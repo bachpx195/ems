@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # devise_for :users
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin, skip: [:sessions, :passwords]
 
@@ -12,7 +13,10 @@ Rails.application.routes.draw do
     devise_scope :admin do
       namespace :admin do
         resources :blogs do
-          resource :steps, controller: "blogs/steps", only: [:show, :update]
+          collection do
+            get "/confirm" => "blogs#confirm"
+          end
+          resources :comments, controller: "blogs/comments", only: [:index, :destroy]
         end
         root to: "top_page#show", as: :root
       end
