@@ -127,3 +127,9 @@ ja:
             author_position:
               blank: "タイ卜ルを人力して下さい。"
               too_long: "255文宇以内て人力して下さい。"
+
+
+  devise:
+    sessions:
+      admin:
+        signed_in: "ログインしました。"

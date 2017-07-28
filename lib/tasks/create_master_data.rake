@@ -13,7 +13,7 @@ namespace :db do
     Category.create! name: "家族"
 
     puts "2. create blogs"
-     (1..20).each do |i|
+     (1..40).each do |i|
        Blog.create! title: "ブログ管理#{i}",
          category_id: rand(1..3),
          public_time: "04/07/2017".to_date,
@@ -32,7 +32,7 @@ namespace :db do
       user = User.create! username: "User#{i}", password: "123456",
         password_confirmation: "123456", remote_avatar_url: "https://tapchianhdep.com/wp-content/uploads/2015/01/hinh-anh-girl-xinh-kute-de-thuong-nhu-bup-be-2.jpg"
       (1..10).each do |j|
-        user.comments.create! blog_id: rand(1..20),
+        user.comments.create! blog_id: rand(1..40),
           content: "user#{i} comment #{j}"
       end
     end

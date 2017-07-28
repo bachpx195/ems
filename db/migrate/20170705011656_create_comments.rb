@@ -2,7 +2,7 @@ class CreateComments < ActiveRecord::Migration[5.1]
   def change
     create_table :comments do |t|
       t.references :user
-      t.references :blogs
+      t.references :blog
       t.text :content
 
       t.timestamps

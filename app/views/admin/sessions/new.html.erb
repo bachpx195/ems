@@ -20,36 +20,41 @@
   <link rel="shortcut icon" href="favicon.ico"/>
 </head>
 <body class=" login">
-<div class="logo">
-  <%= link_to admin_session_path do %>
-      <%= image_tag "logo.png", class: "logo-login" %>
-  <% end %>
+<div class="container">
+  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info" >
+      <div class="panel-heading">
+        <div class="panel-title">Sign In</div>
+      </div>
+
+      <div style="padding-top:30px" class="panel-body" >
+
+        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-horizontal") do |f| %>
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <%= f.text_field :username, autofocus: true,
+                             class: "form-control form-control-solid placeholder-no-fix", autocomplete: "off",
+                             placeholder: t("login.username") %>
+          </div>
+
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <%= f.password_field :password,
+                                 class: "form-control form-control-solid placeholder-no-fix",
+                                 autocomplete: "off", placeholder: t("login.password") %>
+          </div>
+          <div style="margin-top:10px" class="form-group">
+            <div class="col-sm-12 controls">
+              <%= f.button t("login.login_btn"), class: "btn btn-success" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="content">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <h3 class="form-title font-green"><%= t "login.title" %></h3>
-      <div class="alert alert-danger display-hide">
-        <button class="close" data-close="alert"></button>
-        <span> Enter any username and password. </span>
-      </div>
-      <div class="form-group">
-        <label class="control-label visible-ie8 visible-ie9"><%= t "login.username" %></label>
-        <%= f.text_field :username, autofocus: true,
-                         class: "form-control form-control-solid placeholder-no-fix", autocomplete: "off",
-                         placeholder: t("login.username") %>
-      </div>
-      <div class="form-group">
-        <label class="control-label visible-ie8 visible-ie9"><%= t "login.password" %></label>
-        <%= f.password_field :password,
-                             class: "form-control form-control-solid placeholder-no-fix",
-                             autocomplete: "off", placeholder: t("login.password") %>
-      </div>
-      <div class="form-actions">
-        <%= f.button t("login.login_btn"), class: "btn green uppercase" %>
-      </div>
-  <% end %>
-</div>
-<div class="copyright"> 2017 © Terminal. Admin Dashboard.</div>
 <%= javascript_include_tag "application-admin" %>
 </body>
 </html>

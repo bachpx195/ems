@@ -10,8 +10,6 @@
 //= require ./admin-theme/morris.min
 //= require ./admin-theme/app.min
 //= require ./admin-theme/layout.min
-//= require ./admin-theme/quick-sidebar.min
-//= require ./admin-theme/quick-nav.min
 //= require ./admin-theme/themes
 //= require ./admin/blogs
 //= require moment
