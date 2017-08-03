@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # devise_for :users
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin, skip: [:sessions, :passwords]
 
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
           end
           resources :comments, controller: "blogs/comments", only: [:index, :destroy]
         end
+        get "/confirmation" => "blogs#confirm", as: :confirm
         root to: "top_page#show", as: :root
       end
     end
@@ -33,4 +33,14 @@ Rails.application.routes.draw do
 
   get "/pages/*page", to: "pages#show"
   root "pages#show", page: "home"
+
+  devise_for :users, path: "users", skip: [:sessions]
+  devise_scope :user do
+    get "login" => "users/sessions#new", as: :user_session
+    post "login" => "users/sessions#create", as: :user_login
+    get "logout" => "users/sessions#destroy", as: :user_logout
+  end
+
+  resources :blogs, controller: "blogs"
+  get "author" => "authors#show", as: :author_static
 end

@@ -77,6 +77,9 @@ ja:
           name_default: "ナルフォード"
           destroy: "削除"
           back: "背中"
+          allow: "公開中"
+          forbids: "非公開中"
+
       table:
         id: "ID"
         create_at: "作成時間"
@@ -127,7 +130,6 @@ ja:
             author_position:
               blank: "タイ卜ルを人力して下さい。"
               too_long: "255文宇以内て人力して下さい。"
-
 
   devise:
     sessions:

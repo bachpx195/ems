@@ -1,12 +1,11 @@
-body {
-  width: 100%;
-  max-width: 100%;
-  img{
-    margin: auto;
-  }
-}
-
-.container {
+.container-homepage {
   background-color: #f0f0f0 !important;
-  
+  position: relative;
+  width: 100%;
+  top: 6.521vh;
+    #avatar {
+      position: absolute;
+      height: 12.54vw;
+      width: 12.54vw;
+    }
 }

@@ -17,7 +17,7 @@ namespace :db do
        Blog.create! title: "ブログ管理#{i}",
          category_id: rand(1..3),
          public_time: "04/07/2017".to_date,
-         public_status: rand(0..1),
+         set_public: rand(0..1),
          suggest_status: rand(0..1),
          remote_intro_image_url: "http://truyenhay18.com/wp-content/uploads/2014/08/gap-tu-linh-nu-sinh-viet-co-nu-cuoi-toa-nang-hut-hon-cu-dan-mang.jpg",
          author_name: "ナルフォード",

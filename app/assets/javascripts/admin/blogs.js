@@ -5,9 +5,10 @@ $(function() {
 
     var $createBlog = $('#create-blogs-account-page');
 
-    $createBlog.on('click', '.edit-img', function() {
+    $(document).on('click', '.edit-img', function(event) {
         $(this).parent().parent().find('.file-field input').first().click();
         $(this).parent().parent().find('.image-preview a').first().removeClass("hide");
+        event.preventDefault()
     });
 
     function readURL(input, dom) {
@@ -25,7 +26,7 @@ $(function() {
         }
     }
 
-    $createBlog.on('change', '.file-field input', function() {
+    $(document).on('change', '.file-field input', function() {
         readURL(this, $(this));
     });
 

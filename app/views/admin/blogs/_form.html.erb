@@ -1,12 +1,15 @@
-<%= form_for @blog, url: {action: action}, html: {class: "form-horizontal", multipart: true} do |f| %>
+<%= form_for blog, url: {action: action}, html: {class: "form-horizontal", multipart: true} do |f| %>
+  <% if action == "update" %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
   <div class="form-group">
     <span class="col-sm-1 btn btn-primary nohover" id=title"><%= t "admin.blog.create.form.title" %></span>
     <div class="col-sm-11">
       <%= f.text_field :title, autocomplete: "off", id: "title", class: "form-control", placeholder: "必須255文字以内" %>
     </div>
-    <% unless show_errors(@blog, :title).nil? %>
+    <% unless show_errors(blog, :title).nil? %>
       <div class="col-sm-11 col-sm-offset-1">
-        <% show_errors(@blog, :title).each do |msg| %>
+        <% show_errors(blog, :title).each do |msg| %>
           <span class="help-block text-danger-ems"><%= msg %></span>
         <% end %>
       </div>
@@ -37,9 +40,9 @@
         autocomplete: "off", placeholder: "必須",
         id: "datetimepicker4", class: "form-control date-picker" %>
     </div>
-    <% unless show_errors(@blog, :public_time).nil? %>
+    <% unless show_errors(blog, :public_time).nil? %>
       <div class="col-sm-11 col-sm-offset-1">
-        <% show_errors(@blog, :public_time).each do |msg| %>
+        <% show_errors(blog, :public_time).each do |msg| %>
             <span class="help-block text-danger-ems"><%= msg %></span>
         <% end %>
       </div>
@@ -47,12 +50,12 @@
   </div>
 
   <div class="form-group">
-    <span for="public_status" class="col-sm-1 btn btn-primary nohover">
+    <span for="set_public" class="col-sm-1 btn btn-primary nohover">
       <%= t "admin.blog.create.form.public" %>
     </span>
     <div class="col-sm-11">
       <label>
-        <%= f.check_box :public_status, {checked: f.object.published? ? true : false}, checked_value = Settings.blog.status.published,
+        <%= f.check_box :set_public, {checked: f.object.allow? ? true : false}, checked_value = Settings.blog.status.published,
           unchecked_value = Settings.blog.status.draft %>   <%= t "admin.blog.create.form.setting_public" %>
       </label>
     </div>
@@ -92,9 +95,9 @@
       <div class="col-sm-11 col-sm-offset-1">
         <%= link_to t("admin.blog.create.form.open_file"), "javascript:void(0)", class: "edit-img btn btn-default" %>
       </div>
-    <% unless show_errors(@blog, :intro_image).nil? %>
+    <% unless show_errors(blog, :intro_image).nil? %>
       <div class="col-sm-11 col-sm-offset-1">
-        <% show_errors(@blog, :intro_image).each do |msg| %>
+        <% show_errors(blog, :intro_image).each do |msg| %>
           <span class="help-block text-danger-ems"><%= msg %></span>
         <% end %>
       </div>
@@ -112,9 +115,9 @@
     <div class="col-sm-11 col-sm-offset-1">
       <%= f.cktext_area :content, rows: 10, id: "editor1" %>
     </div>
-    <% unless show_errors(@blog, :content).nil? %>
+    <% unless show_errors(blog, :content).nil? %>
         <div class="col-sm-11 col-sm-offset-1">
-          <% show_errors(@blog, :content).each do |msg| %>
+          <% show_errors(blog, :content).each do |msg| %>
               <span class="help-block text-danger-ems"><%= msg %></span>
           <% end %>
         </div>
@@ -130,9 +133,9 @@
         value: f.object.author_name ? f.object.author_name : t("admin.blog.create.form.name_default"),
         autocomplete: "off", id: "author_name", class: "form-control", placeholder: "必須/32文宇以内"  %>
     </div>
-    <% unless show_errors(@blog, :author_name).nil? %>
+    <% unless show_errors(blog, :author_name).nil? %>
       <div class="col-sm-11 col-sm-offset-1">
-        <% show_errors(@blog, :author_name).each do |msg| %>
+        <% show_errors(blog, :author_name).each do |msg| %>
           <span class="help-block text-danger-ems"><%= msg %></span>
         <% end %>
       </div>
@@ -148,9 +151,9 @@
         value: f.object.author_position ? f.object.author_position : t("admin.blog.create.form.position_default"),
         autocomplete: "off", id: "author_position", class: "form-control", placeholder: "必須/32文宇以内" %>
     </div>
-    <% unless show_errors(@blog, :author_position).nil? %>
+    <% unless show_errors(blog, :author_position).nil? %>
       <div class="col-sm-11 col-sm-offset-1">
-        <% show_errors(@blog, :author_position).each do |msg| %>
+        <% show_errors(blog, :author_position).each do |msg| %>
           <span class="help-block text-danger-ems"><%= msg %></span>
         <% end %>
       </div>
@@ -166,9 +169,9 @@
         value: f.object.author_age ? f.object.author_age : t("admin.blog.create.form.age_default"),
         autocomplete: "off", id: "author_age", class: "form-control" %>
     </div>
-    <% unless show_errors(@blog, :author_age).nil? %>
+    <% unless show_errors(blog, :author_age).nil? %>
       <div class="col-sm-11 col-sm-offset-1">
-        <% show_errors(@blog, :author_age).each do |msg| %>
+        <% show_errors(blog, :author_age).each do |msg| %>
           <span class="help-block text-danger-ems"><%= msg %></span>
         <% end %>
       </div>
@@ -196,9 +199,9 @@
     <div class="col-sm-11 col-sm-offset-1">
       <%= link_to t("admin.blog.create.form.open_file"), "javascript:void(0)", class: "edit-img btn btn-default" %>
     </div>
-    <% unless show_errors(@blog, :author_image).nil? %>
+    <% unless show_errors(blog, :author_image).nil? %>
       <div class="col-sm-11 col-sm-offset-1">
-        <% show_errors(@blog, :author_image).each do |msg| %>
+        <% show_errors(blog, :author_image).each do |msg| %>
           <span class="help-block text-danger-ems"><%= msg %></span>
         <% end %>
       </div>
@@ -215,7 +218,7 @@
       </div>
       <% if action == "update" %>
         <div class="col-sm-1">
-          <%= link_to t("admin.blog.create.form.destroy"), admin_blog_path(@blog), method: :delete,
+          <%= link_to t("admin.blog.create.form.destroy"), admin_blog_path(blog), method: :delete,
             class: "btn btn-danger" %>
         </div>
       <% end %>

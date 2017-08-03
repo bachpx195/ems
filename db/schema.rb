@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727012632) do
+ActiveRecord::Schema.define(version: 20170803085605) do
 
   create_table "admin", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "username"
@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(version: 20170727012632) do
     t.string "author_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "set_public", default: 0, null: false
+    t.integer "biglikes_count", default: 0
+    t.integer "likes_count", default: 0
+    t.integer "dislikes_count", default: 0
+    t.integer "bigdislikes_count", default: 0
     t.index ["category_id"], name: "index_blogs_on_category_id"
   end
 

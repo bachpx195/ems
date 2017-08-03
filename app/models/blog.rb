@@ -5,7 +5,7 @@ class Blog < ApplicationRecord
   mount_uploader :intro_image, ImageUploader
   mount_uploader :author_image, ImageUploader
 
-  BLOG_ATTRS = [:id, :title, :category_id, :public_time, :public_status,
+  BLOG_ATTRS = [:id, :title, :category_id, :public_time, :set_public,
     :suggest_status, :intro_image, :intro_image_cache,
     :content, :author_name, :author_position, :author_age, :author_image, :author_image_cache]
 
@@ -27,6 +27,9 @@ class Blog < ApplicationRecord
   validates :content, presence: true
   validates_length_of :author_age, maximum: 32
 
+  enum set_public: {forbids: Settings.blog.status.draft,
+    allow: Settings.blog.status.published}
+
   enum public_status: {draft: Settings.blog.status.draft,
     published: Settings.blog.status.published}
 
@@ -39,6 +42,18 @@ class Blog < ApplicationRecord
 
   def public_blog
     update_attribute 'public_status', Blog.public_statuses[:published]
+  end
+
+  def conditions_public_blog?
+    return true if self.draft? && self.allow? && Time.now() > self.public_time
+  end
+
+  def check_public
+    if self.allow? && (Time.now() >= self.public_time)
+      self.public_blog
+    else
+      self.stop_public_blog
+    end
   end
 
   private

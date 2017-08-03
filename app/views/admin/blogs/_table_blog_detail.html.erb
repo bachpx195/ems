@@ -1,4 +1,4 @@
-<td class="text-center"><%= show_index index, params[:page] %></td>
+<td class="text-center"><%= blog.id %></td>
 <td class="text-center"><%= format_date_in_japan blog.created_at %></td>
 <td class="text-center"><%= blog.title %></td>
 <td class="text-center"><%= blog.category.name %></td>
@@ -21,7 +21,7 @@
         method: :patch,
         remote: :true, class: "btn btn-danger" %>
     <% end %>
-    <% if blog.public_status == "draft" %>
+    <% if blog.conditions_public_blog? %>
         <%= link_to t("admin.blog.table.public_blog"), admin_blog_path(id: blog.id, params: {type: "public_blog", index: index}),
           method: :patch,
           remote: :true, class: "btn btn-success" %>

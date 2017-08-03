@@ -7,12 +7,14 @@
     <div class="row">
       <div class="col-md-12 col-lg-10 col-lg-offset-1">
         <div class="portlet-body form">
-          <div class="form-horizontal">
+          <%= form_for @blog, url: {action: @action}, html: {class: "form-horizontal", multipart: true} do |f| %>
+          <%= hidden_field_tag "action_type", @action%>
             <div class="form-group">
               <span class="col-sm-1 btn btn-primary nohover" id=title"><%= t "admin.blog.create.form.title" %></span>
               <div class="col-sm-11">
                 <div class="col-sm-6">
-                  <h4 class=form-control"><%= @blog.title %></h4>
+                  <h4 class=form-control"><%= @blog.id? ?  @blog_instane.title : f.object.title %></h4>
+                  <%= f.hidden_field :title, value: @blog.id? ? @blog_instane.title : f.object.title %>
                 </div>
               </div>
             </div>
@@ -21,7 +23,8 @@
               <span class="col-sm-1 btn btn-primary nohover" id=title"><%= t "admin.blog.create.form.category" %></span>
               <div class="col-sm-6">
                 <div class="col-sm-11">
-                  <h4 class=form-control"><%= @blog.category.name %></h4>
+                  <h4 class=form-control"><%= @blog.id? ?  @blog_instane.category.name : f.object.category.name %></h4>
+                  <%= f.hidden_field :category_id, value: @blog.id? ? @blog_instane.category_id : f.object.category_id %>
                 </div>
               </div>
             </div>
@@ -30,18 +33,20 @@
               <span class="col-sm-1 btn btn-primary nohover" id=title"><%= t "admin.blog.create.form.time" %></span>
               <div class="col-sm-6">
                 <div class="col-sm-11">
-                  <h4 class=form-control"><%= format_date_in_japan @blog.public_time %></h4>
+                  <h4 class=form-control"><%= format_date_in_japan(@blog.id? ? @blog_instane.public_time : f.object.public_time) %></h4>
+                  <%= f.hidden_field :public_time, value: @blog.id? ? @blog_instane.public_time : f.object.public_time %>
                 </div>
               </div>
             </div>
 
             <div class="form-group">
-              <span for="public_status" class="col-sm-1 btn btn-primary nohover">
+              <span for="set_public" class="col-sm-1 btn btn-primary nohover">
                 <%= t "admin.blog.create.form.public" %>
               </span>
               <div class="col-sm-6">
                 <div class="col-sm-11">
-                  <h4 class=form-control"><%= t "admin.blog.search.#{@blog.public_status}" %></h4>
+                  <h4 class=form-control"><%= Blog.set_publics["#{@blog.id? ? @blog_instane.set_public : f.object.set_public}"] == 1 ? "公開中" : "非公開中" %></h4>
+                  <%= f.hidden_field :set_public, value: Blog.set_publics["#{@blog.id? ? @blog_instane.set_public : f.object.set_public}"] %>
                 </div>
               </div>
             </div>
@@ -52,7 +57,9 @@
               </span>
               <div class="col-sm-6">
                 <div class="col-sm-11">
-                  <h4 class=form-control"><%= t "admin.blog.search.#{@blog.suggest_status}" %></h4>
+                  <h4 class=form-control"><%= Blog.suggest_statuses["#{@blog.id? ? @blog_instane.suggest_status : f.object.suggest_status}"] == 1 ? "オススメ" : "非オススメ" %></h4>
+                  <%= f.hidden_field :suggest_status, value: Blog.suggest_statuses["#{@blog.id? ? @blog_instane.suggest_status : f.object.suggest_status}"]
+                  %>
                 </div>
               </div>
             </div>
@@ -65,8 +72,9 @@
                 <div class="col-sm-11">
                   <div class="image-preview">
                     <%= link_to "#" do %>
-                        <%= image_tag @blog.intro_image_url, class: "img-responsive" %>
-                    <% end %>
+                      <%= image_tag @blog.id? ? @blog_instane.intro_image_url : f.object.intro_image_url, class: "img-responsive" %>
+                        <%= hidden_field_tag "image_path", @blog.id? ? @blog_instane.intro_image.path : f.object.intro_image.path %>
+                  <% end %>
                   </div>
                 </div>
               </div>
@@ -78,7 +86,8 @@
               </span>
               <div class="col-sm-10">
                 <div class="col-sm-11">
-                  <div class="scoller"><%= raw @blog.content %></div>
+                  <div class="scoller"><%= raw(@blog.id? ? @blog_instane.content : f.object.content) %></div>
+                  <%= f.hidden_field :content, value: @blog.id? ? @blog_instane.content : f.object.content %>
                 </div>
               </div>
             </div>
@@ -91,7 +100,8 @@
               </span>
               <div class="col-sm-6">
                 <div class="col-sm-11">
-                  <h4 class=form-control"><%= @blog.author_name %></h4>
+                  <h4 class=form-control"><%= @blog.id? ? @blog_instane.author_name : f.object.author_name %></h4>
+                  <%= f.hidden_field :author_name, value: @blog.id? ? @blog_instane.author_name : f.object.author_name %>
                 </div>
               </div>
             </div>
@@ -102,7 +112,8 @@
               </span>
               <div class="col-sm-6">
                 <div class="col-sm-11">
-                  <h4 class=form-control"><%= @blog.author_position %></h4>
+                  <h4 class=form-control"><%= @blog.id? ? @blog_instane.author_name : f.object.author_name %></h4>
+                  <%= f.hidden_field :author_position, value: @blog.id? ? @blog_instane.author_name : f.object.author_name %>
                 </div>
               </div>
             </div>
@@ -113,13 +124,11 @@
               </span>
               <div class="col-sm-6">
                 <div class="col-sm-11">
-                  <h4 class=form-control"><%= @blog.author_age %></h4>
+                  <h4 class=form-control"><%= f.object.author_age %></h4>
+                  <%= f.hidden_field :author_age, value: @blog.id? ? @blog_instane.author_age : f.object.author_age %>
                 </div>
               </div>
             </div>
-
-
-            <div class="form-group">
             <span for="intro_image" class="col-sm-1 btn btn-primary nohover long-text">
               <%= t "admin.blog.create.form.author_image" %>
             </span>
@@ -127,7 +136,11 @@
               <div class="col-sm-11">
                 <div class="image-preview">
                   <%= link_to "#" do %>
-                      <%= image_tag @blog.author_image? ? @blog.author_image_url : Settings.default_upload_icon , class: "img-responsive" %>
+                    <% if @blog.id? %>
+                      <%= image_tag @blog_instane.author_image.blank? ? Settings.default_upload_icon : @blog_instane.author_image , class: "img-responsive" %>
+                    <% else %>
+                      <%= image_tag f.object.author_image.blank? ? Settings.default_upload_icon : f.object.author_image , class: "img-responsive" %>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
@@ -137,16 +150,15 @@
             <div class="form-actions">
               <div class="row">
                 <div class="col-sm-offset-4 col-sm-1">
-                  <%= link_to t("admin.blog.create.form.back"), edit_admin_blog_path(@blog), class: "btn btn-default" %>
+                  <%= f.submit t("admin.blog.create.form.back"), class: "btn btn-default" %>
                 </div>
                 <div class="col-sm-1">
-                  <%= link_to t("admin.blog.create.form.save"),
-                    confirm_admin_blogs_path(type_action: params[:type]), class: "btn btn-info" %>
+                  <%= f.submit t("admin.blog.create.form.save"), class: "btn btn-info" %>
                 </div>
               </div>
             </div>
           </div>
-          </div>
+          <% end %>
         </div>
     </div>
   </div>
