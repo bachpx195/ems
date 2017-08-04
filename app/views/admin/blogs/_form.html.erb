@@ -188,8 +188,8 @@
         <%= f.hidden_field :author_image_cache %>
       </div>
       <div class="image-preview">
-        <%= link_to image_url(f.object.author_image_url ? f.object.author_image_url : Settings.default_upload_icon) do %>
-            <%= image_tag f.object.author_image_url ? f.object.author_image_url : Settings.default_upload_icon, class: "img-responsive" %>
+        <%= link_to "#" do %>
+          <%= image_tag f.object.author_image_url ? f.object.author_image_url : Settings.default_upload_icon, class: "img-responsive" %>
         <% end %>
       </div>
     </div>

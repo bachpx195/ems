@@ -35,6 +35,7 @@ class Admin::BlogsController < Admin::BaseAdminController
     else
       if @blog.valid?
         @image_path = @blog.intro_image.path
+        @image_author_path = @blog.author_image.path
         @action = "create"
         render :confirm
       else
@@ -67,6 +68,7 @@ class Admin::BlogsController < Admin::BaseAdminController
           elsif params[:commit] == t("admin.blog.create.form.save")
             @blog.update_attributes blog_params
             @blog.update intro_image: File.open(params[:image_path].to_s)
+            @blog.check_public
             flash[:success] = t "alert.blog.update"
             redirect_to admin_blogs_path
           end

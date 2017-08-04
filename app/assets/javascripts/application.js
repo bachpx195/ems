@@ -14,4 +14,3 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require "admin/blogs.js"
-

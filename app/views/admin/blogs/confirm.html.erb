@@ -73,7 +73,7 @@
                   <div class="image-preview">
                     <%= link_to "#" do %>
                       <%= image_tag @blog.id? ? @blog_instane.intro_image_url : f.object.intro_image_url, class: "img-responsive" %>
-                        <%= hidden_field_tag "image_path", @blog.id? ? @blog_instane.intro_image.path : f.object.intro_image.path %>
+                      <%= hidden_field_tag "image_path", @blog.id? ? @blog_instane.intro_image.path : f.object.intro_image.path %>
                   <% end %>
                   </div>
                 </div>
@@ -129,6 +129,8 @@
                 </div>
               </div>
             </div>
+
+          <div class="form-group">
             <span for="intro_image" class="col-sm-1 btn btn-primary nohover long-text">
               <%= t "admin.blog.create.form.author_image" %>
             </span>
@@ -142,24 +144,25 @@
                       <%= image_tag f.object.author_image.blank? ? Settings.default_upload_icon : f.object.author_image , class: "img-responsive" %>
                     <% end %>
                   <% end %>
-                </div>
-              </div>
-            </div>
-            </div>
-
-            <div class="form-actions">
-              <div class="row">
-                <div class="col-sm-offset-4 col-sm-1">
-                  <%= f.submit t("admin.blog.create.form.back"), class: "btn btn-default" %>
-                </div>
-                <div class="col-sm-1">
-                  <%= f.submit t("admin.blog.create.form.save"), class: "btn btn-info" %>
+                  <%= hidden_field_tag "image_author_path", @blog.id? ? @blog_instane.author_image.path : f.object.author_image.path %>
                 </div>
               </div>
             </div>
           </div>
-          <% end %>
+
+          <div class="form-actions">
+            <div class="row">
+              <div class="col-sm-offset-4 col-sm-1">
+                <%= f.submit t("admin.blog.create.form.back"), class: "btn btn-default" %>
+              </div>
+              <div class="col-sm-1">
+                <%= f.submit t("admin.blog.create.form.save"), class: "btn btn-info" %>
+              </div>
+            </div>
+          </div>
         </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
