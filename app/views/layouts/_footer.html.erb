@@ -1,7 +1,7 @@
 <footer>
   <div class="row" >
     <a href="#" >
-      <div class="col-xs-4 footer-menu ">
+      <div class="col-xs-4 footer-menu">
         <div class="comment">
           <img class="default" src="/assets/comment.png" alt="">
           <img class="selected" src="/assets/comment-active.png" alt="">
@@ -9,8 +9,8 @@
         </div>
       </div>
     </a>
-    <a href="#" data-remote="true">
-      <div class="col-xs-4 footer-menu">
+    <a href="<%= blogs_path %>">
+      <div class="col-xs-4 footer-menu <%= params[:controller] == "blogs" ? "active" : "" %>">
         <div class="detail">
           <img class="default" src="/assets/detail.png" alt="">
           <img class="selected" src="/assets/detail-active.png" alt="">
@@ -18,8 +18,8 @@
         </div>
       </div>
     </a>
-    <a href="#" data-remote="true">
-      <div class="col-xs-4 footer-menu active">
+    <a href="<%= author_static_path %>">
+      <div class="col-xs-4 footer-menu <%= params[:controller] == "authors" ? "active" : "" %> ">
         <div class="author">
           <img class="default" src="/assets/author.png" alt="">
           <img class="selected" src="/assets/author-active.png" alt="">
