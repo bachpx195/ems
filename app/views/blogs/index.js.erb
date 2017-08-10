@@ -1,0 +1,14 @@
+<% if params[:type_page] == "welcome" %>
+  $('#modal-body-comment').html("");
+  $('#modal-main-welcome-ems').modal();
+<% else %>
+  $("#my-blogs-user").append("<%= j render "blog" %>");
+  <% if params[:category].nil? %>
+    $('a.load-more-posts').attr('href', "<%= blogs_path page: @blogs.next_page %>");
+  <% else %>
+    $('a.load-more-posts').attr('href', "<%= blogs_path page: @blogs.next_page, category: params[:category] %>");
+  <% end %>
+  <% if @blogs.next_page.nil? %>
+    $('a.load-more-posts').remove();
+  <% end %>
+<% end %>

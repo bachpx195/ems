@@ -1,7 +1,8 @@
 <div class="row menu-bar" >
   <ul class="autoplay">
+    <a href=<%= blogs_path %>><li class="<%= params[:category].nil? ? "active" : "" %>">すべて</li></a>
     <% @category.each do |category| %>
-      <a href="#" data-remote="true"><li><%=  category.name %></li></a>
+      <a href="<%= blogs_path(category: category.id) %>"><li class="<%= params[:category].to_i.eql?(category.id) ? "active" : "" %>"><%=  category.name %></li></a>
     <% end %>
   </ul>
 </div>
@@ -9,19 +10,11 @@
   <ul id="my-blogs-user" >
     <%= render 'blog' %>
   </ul>
-  <div id="infinite-scrolling-user" class="text-center">
-    <%= paginate @blogs %>
-  </div>
+  <% if @blogs.count.eql? 10 %>
+    <% if params[:category].nil? %>
+      <%= link_to 'Load More Posts', blogs_path(page: @blogs.next_page), class: 'load-more-posts', remote: true  %>
+    <% else %>
+      <%= link_to 'Load More Posts', blogs_path(page: @blogs.next_page, category: params[:category]), class: 'load-more-posts', remote: true  %>
+    <% end %>
+  <% end %>
 </div>
-
-<script>
-    $(document).ready(function () {
-        $('.autoplay').slick({
-            slidesToShow: 3,
-            autoplay: true,
-            autoplaySpeed: 2000,
-        });
-
-        $('.menu-bar ul button').hide();
-    });
-</script>

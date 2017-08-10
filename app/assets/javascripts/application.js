@@ -13,4 +13,34 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require slick.min
+//= require jquery.inview.min.js
 //= require "admin/blogs.js"
+//= require social-share-button
+//= require_tree .
+
+$(function() {
+    $('.autoplay').slick({
+        infinite: false,
+        speed: 300,
+        slidesToShow: 1,
+        centerMode: false,
+        variableWidth: true,
+        mobileFirst: true
+    });
+
+    $('.menu-bar ul button').hide();
+
+    var loading_posts = false;
+    $('a.load-more-posts').on('inview', function(e, visible) {
+        if(loading_posts == true || visible == true){
+            loading_posts = true;
+            $.getScript($(this).attr('href'), function () {
+                loading_posts = false;
+            });
+        };
+    });
+});
+
+
+// .on('inview', function(event, isInView) {

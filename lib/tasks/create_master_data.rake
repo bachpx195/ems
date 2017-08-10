@@ -7,18 +7,23 @@ namespace :db do
     Admin.create! username: "admin", password: "123456",
       password_confirmation: "123456"
 
+    puts "0. create user"
+    Admin.create! username: "user", password: "123456",
+        password_confirmation: "123456"
+
     puts "1. create category"
     Category.create! name: "勉強"
     Category.create! name: "学校"
     Category.create! name: "家族"
 
     puts "2. create blogs"
-     (1..40).each do |i|
+     (1..50).each do |i|
        Blog.create! title: "ブログ管理#{i}",
          category_id: rand(1..3),
          public_time: "04/07/2017".to_date,
-         set_public: rand(0..1),
+         set_public: 1,
          suggest_status: rand(0..1),
+         public_status: 1,
          remote_intro_image_url: "http://truyenhay18.com/wp-content/uploads/2014/08/gap-tu-linh-nu-sinh-viet-co-nu-cuoi-toa-nang-hut-hon-cu-dan-mang.jpg",
          author_name: "ナルフォード",
          author_position: "塾講師",
@@ -35,6 +40,24 @@ namespace :db do
         user.comments.create! blog_id: rand(1..40),
           content: "user#{i} comment #{j}"
       end
+    end
+
+    puts "4. create reaction"
+    (1..1000).each do |i|
+      Reaction.create! user_id: rand(1..10),
+        blog_id: rand(1..40),
+        rate_type: rand(1..4)
+    end
+    Blog.published.each do |x|
+      a = Reaction.where(blog_id: x.id).select(:rate_type).group(:rate_type).count
+      a['biglike'] = 0 unless a['biglike']
+      a['like'] = 0 unless a['like']
+      a['dislike'] = 0 unless a['dislike']
+      a['bigdislike'] = 0 unless a['bigdislike']
+      Blog.find(x.id).update(biglikes_count: a['biglike'],
+                                likes_count: a['like'],
+                                dislikes_count: a['dislike'],
+                                bigdislikes_count: a['bigdislike'])
     end
   end
 end

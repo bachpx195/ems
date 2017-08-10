@@ -1,8 +1,4 @@
 $(function() {
-    $('#datetimepicker4').datetimepicker({
-        format: 'YYYY-MM-DD HH:mm'
-    });
-
     var $createBlog = $('#create-blogs-account-page');
 
     $(document).on('click', '.edit-img', function(event) {
@@ -25,6 +21,10 @@ $(function() {
             reader.readAsDataURL(input.files[0]);
         }
     }
+
+    $('#datetimepicker4').datetimepicker({
+        format: 'YYYY-MM-DD HH:mm'
+    });
 
     $(document).on('change', '.file-field input', function() {
         readURL(this, $(this));

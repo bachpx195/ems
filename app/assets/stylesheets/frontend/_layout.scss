@@ -4,6 +4,45 @@ body {
   img{
     margin: auto;
   }
+  #modal-main-welcome-ems {
+    #welcome-text {
+      position: absolute;
+      top: 3.68vh;
+      left: 5.29vw;
+      right: 5.29vw;
+      height: 15.35vh;
+      img{
+        width: 100%;
+        height: 70.55vh;
+      }
+    }
+    #button-welcome-ems {
+      position: absolute;
+      top: 77.77vh;
+      left: 5.29vw;
+      right: 5.29vw;
+      .btn-ems {
+        width: 100% !important;
+        border-radius: 0px;
+        height: 8.88vh;
+        font-size: small;
+        .center-text {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      .btn-blog-list-ems {
+        background: #ff7300 !important;
+        color: white;
+      }
+      .btn-author-ems {
+        background: white !important;
+        color: black;
+        margin-top: 1vh;
+      }
+    }
+  }
 }
 
 header {

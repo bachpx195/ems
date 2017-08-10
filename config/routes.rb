@@ -39,8 +39,11 @@ Rails.application.routes.draw do
     get "login" => "users/sessions#new", as: :user_session
     post "login" => "users/sessions#create", as: :user_login
     get "logout" => "users/sessions#destroy", as: :user_logout
-  end
+    resources :comments, only: [:create]
+    resources :authors, controller: "authors", only: [:index]
 
-  resources :blogs, controller: "blogs"
-  get "author" => "authors#show", as: :author_static
+    resources :blogs, controller: "blogs" do
+      resources :authors, controller: "blogs/authors", only: [:index]
+    end
+  end
 end

@@ -1,6 +1,39 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
+  before_action :find_blog, only: [:show]
+
   def index
-    @blogs = Blog.includes(:category).page(params[:page]).per(20)
+    if params[:category].nil?
+      @blogs = Blog.published.includes(:category).page(params[:page]).per(10)
+    else
+      @blogs = Blog.published.where(category_id: params[:category].to_i).includes(:category).page(params[:page]).per(10)
+    end
     @category = Category.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def show
+    @blog_comments = @blog.comments.includes(:user).order('created_at ASC')
+    if current_user
+      @action = Reaction.where(user_id: current_user.id,
+                               blog_id: @blog.id).first
+
+      @check_action = @action.rate_type if @action
+    end
+
+    @count_action = Reaction.where(blog_id: @blog.id)
+                        .select(:rate_type)
+                        .group(:rate_type).count
+  end
+
+  private
+  def find_blog
+    @blog = Blog.find_by id: params[:id]
+    unless @blog
+      redirect_to root_url
+    end
   end
 end

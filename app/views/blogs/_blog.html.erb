@@ -1,6 +1,6 @@
 <% @blogs.each do |blog| %>
   <li>
-    <a href="#">
+    <a href="<%= blog_path blog %>">
       <div class="row">
         <% if blog.suggest_status.eql?("available") %>
             <div class="promoted">
@@ -17,7 +17,7 @@
                 <p><%= blog.category.name %></p>
               </div>
               <div class="publish-time">
-                <p><%= format_date_in_japan blog.public_time %></p>
+                <p><%= format_date_in_list blog.public_time %></p>
               </div>
             </div>
             <div class="col-xs-6">

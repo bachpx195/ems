@@ -41,11 +41,14 @@ gem "bootstrap-kaminari-views"
 gem "ransack"
 
 # DatetimePicker
-gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem "momentjs-rails", ">= 2.9.0"
+gem "bootstrap3-datetimepicker-rails", "~> 4.17.47"
 
 # multi-form
 gem "wicked"
+
+# media-social-share
+gem "social-share-button"
 
 group :development, :test do
   # Debug

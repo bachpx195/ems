@@ -13,5 +13,16 @@
     <%= render "layouts/header" %>
       <%= yield %>
     <%= render "layouts/footer" %>
+    <div id="modal-main-welcome-ems" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog modal-dialog-comment-ems">
+        <div id="welcome-text">
+          <%= image_tag "welcome-image" %>
+        </div>
+        <div id="button-welcome-ems">
+          <a href="<%= blogs_path %>" class="btn btn-ems btn-blog-list-ems"><p class="center-text"><i class="glyphicon glyphicon-list"></i>  記事一覧を見る <i class="glyphicon glyphicon-chevron-right pull-right"></i></p></a>
+          <a href="<%= authors_path %>" class="btn btn-ems btn-author-ems"><p class="center-text">ナルフォード先生のプロフィールをみる<i class="glyphicon glyphicon-chevron-right pull-right"></i></p></a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

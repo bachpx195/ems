@@ -9,7 +9,7 @@
         </div>
       </div>
     </a>
-    <a href="<%= blogs_path %>">
+    <%= link_to blogs_path(type_page: "welcome"), remote: true do %>
       <div class="col-xs-4 footer-menu <%= params[:controller] == "blogs" ? "active" : "" %>">
         <div class="detail">
           <img class="default" src="/assets/detail.png" alt="">
@@ -17,8 +17,8 @@
           <span><p>ブログ</p></span>
         </div>
       </div>
-    </a>
-    <a href="<%= author_static_path %>">
+    <% end %>
+    <a href="#" >
       <div class="col-xs-4 footer-menu <%= params[:controller] == "authors" ? "active" : "" %> ">
         <div class="author">
           <img class="default" src="/assets/author.png" alt="">
