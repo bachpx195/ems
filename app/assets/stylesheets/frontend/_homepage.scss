@@ -1,11 +1,14 @@
 .container-homepage {
   background-color: #f0f0f0 !important;
   position: relative;
-  width: 100%;
-  top: 6.521vh;
+  width: 90vw;
+  top: 10vh;
     #avatar {
+      left: 3vw;
+      width: 100vw;
       position: absolute;
-      height: 12.54vw;
-      width: 12.54vw;
+      img {
+        width: 90%;
+      }
     }
 }

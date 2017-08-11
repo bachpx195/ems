@@ -1,7 +1,7 @@
 <footer>
   <div class="row" >
-    <a href="#" >
-      <div class="col-xs-4 footer-menu">
+    <a href="<%= root_path %>" >
+      <div class="col-xs-4 footer-menu <%= params[:controller].eql?("pages") ? "active" : "" %>">
         <div class="comment">
           <img class="default" src="/assets/comment.png" alt="">
           <img class="selected" src="/assets/comment-active.png" alt="">
