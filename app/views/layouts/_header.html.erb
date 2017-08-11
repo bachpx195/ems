@@ -1,10 +1,13 @@
 <header>
   <div id="header-top">
     <div id="bell">
-      <img src="/assets/bell.png" alt="">
+      <% if !params[:controller].eql?("pages") && (params[:action].eql?("show") || params[:controller].eql?("authors")) %>
+      <% else %>
+        <img src="/assets/bell.png" alt="">
+      <% end %>
     </div>
     <div id="title-text">
-      <p>なるほどブログ</p>
+      <p><a href="<%= blogs_path %>" role="button" class="<%=  !params[:controller].eql?("pages") && (params[:action].eql?("show") || params[:controller].eql?("authors")) ? "" : "hidden" %>"><i class="glyphicon glyphicon-chevron-left pull-left blog-back-ems"></i></a><%= title_text(params[:controller]) %></p>
     </div>
   </div>
 </header>

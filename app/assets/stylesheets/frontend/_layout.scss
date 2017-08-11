@@ -1,6 +1,7 @@
 body {
   width: 100%;
   max-width: 100%;
+  background: #f0f0f0;
   img{
     margin: auto;
   }
@@ -75,6 +76,10 @@ header {
       margin-right: auto;
       p {
         text-align: center;
+      }
+      .blog-back-ems {
+        left: 3vw;
+        color: white;
       }
     }
   }

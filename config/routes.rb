@@ -45,5 +45,8 @@ Rails.application.routes.draw do
     resources :blogs, controller: "blogs" do
       resources :authors, controller: "blogs/authors", only: [:index]
     end
+    post 'reactions/create', only: [:create]
+
+    resources :users, only: [:show]
   end
 end

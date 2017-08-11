@@ -23,7 +23,9 @@ class Blog < ApplicationRecord
   validates_length_of :author_name, maximum: 32
   validates :author_position, presence: true
   validates_length_of :author_position, maximum: 32
-  validates :author_age, presence: true
+  validates :author_age, presence: true, numericality: { only_integer: true,
+                                                         greater_than: 0,
+                                                         less_than: 100 }
   validates :content, presence: true
   validates_length_of :author_age, maximum: 32
 
@@ -53,22 +55,6 @@ class Blog < ApplicationRecord
       self.public_blog
     else
       self.stop_public_blog
-    end
-  end
-
-  class << self
-    def update_reaction
-      Blog.published.each do |x|
-        a = Reaction.where(blog_id: x.id).select(:rate_type).group(:rate_type).count
-        a['biglike'] = 0 unless a['biglike']
-        a['like'] = 0 unless a['like']
-        a['dislike'] = 0 unless a['dislike']
-        a['bigdislike'] = 0 unless a['bigdislike']
-        Blog.find(x.id).update(biglikes_count: a['biglike'],
-                               likes_count: a['like'],
-                               dislikes_count: a['dislike'],
-                               bigdislikes_count: a['bigdislike'])
-      end
     end
   end
 

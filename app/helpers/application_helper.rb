@@ -62,4 +62,16 @@ module ApplicationHelper
       0
     end
   end
+
+  def title_text str
+    if str.eql? "blogs"
+      "なるほどブログ"
+    elsif str.eql? "authors"
+      "ナルフォード先生のプロフィール"
+    elsif str.eql? "users"
+      "なるほどユーザー"
+    else
+      "トーク"
+    end
+  end
 end

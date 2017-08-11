@@ -167,7 +167,7 @@
     <div class="col-sm-3">
       <%= f.text_field :author_age,
         value: f.object.author_age ? f.object.author_age : t("admin.blog.create.form.age_default"),
-        autocomplete: "off", id: "author_age", class: "form-control" %>
+        autocomplete: "off", id: "author_age", class: "form-control", placeholder: "必須橿2文宇以 内" %>
     </div>
     <% unless show_errors(blog, :author_age).nil? %>
       <div class="col-sm-11 col-sm-offset-1">
@@ -189,7 +189,7 @@
       </div>
       <div class="image-preview">
         <%= link_to "#" do %>
-          <%= image_tag f.object.author_image_url ? f.object.author_image_url : Settings.default_upload_icon, class: "img-responsive" %>
+              <%= image_tag f.object.author_image_url ? f.object.author_image_url : Settings.default_upload_icon, class: "img-responsive" %>
         <% end %>
       </div>
     </div>

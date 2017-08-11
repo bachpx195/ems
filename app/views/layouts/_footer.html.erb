@@ -10,7 +10,7 @@
       </div>
     </a>
     <%= link_to blogs_path(type_page: "welcome"), remote: true do %>
-      <div class="col-xs-4 footer-menu <%= params[:controller] == "blogs" ? "active" : "" %>">
+      <div class="col-xs-4 footer-menu <%= params[:controller].eql?("blogs") || params[:controller].eql?("authors") ? "active" : "" %>">
         <div class="detail">
           <img class="default" src="/assets/detail.png" alt="">
           <img class="selected" src="/assets/detail-active.png" alt="">
@@ -18,8 +18,8 @@
         </div>
       </div>
     <% end %>
-    <a href="#" >
-      <div class="col-xs-4 footer-menu <%= params[:controller] == "authors" ? "active" : "" %> ">
+    <a href="<%= current_user ? user_path(current_user.id) : "" %>" >
+      <div class="col-xs-4 footer-menu <%= params[:controller] == "users" ? "active" : "" %> ">
         <div class="author">
           <img class="default" src="/assets/author.png" alt="">
           <img class="selected" src="/assets/author-active.png" alt="">

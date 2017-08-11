@@ -184,7 +184,7 @@
           $(".review-button").removeClass("review-active");
           $(this).addClass("review-active");
           $.ajax({
-              url: "/blogusers/create",
+              url: "/reactions/create",
               dataType: "script",
               method: "post",
               data: {user_id: <%= current_user.id %>, blog_id: <%= @blog.id %>, user_action: get_action },
@@ -192,3 +192,6 @@
           });
       });
   </script>
+
+
+
