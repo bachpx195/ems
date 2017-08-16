@@ -21,12 +21,13 @@
 
 $(function() {
     $('.autoplay').slick({
-        infinite: false,
+        infinite: true,
         speed: 300,
         slidesToShow: 1,
-        centerMode: false,
+        centerMode: true,
         variableWidth: true,
-        mobileFirst: true
+        focusOnSelect: true,
+        slidesToScroll: 1
     });
 
     $('.menu-bar ul button').hide();
@@ -40,6 +41,22 @@ $(function() {
             });
         };
     });
+
+    $('.welcome').on('click', function (e) {
+        if(sessionStorage["PopupShown"] != 'yes'){
+            $('#modal-body-comment').html("");
+            $('#modal-main-welcome-ems').modal();
+            e.preventDefault();
+        } else {
+            var link = $(this).attr('id')
+            window.location.href = link
+        }
+        sessionStorage["PopupShown"] = 'yes';
+    });
+
+    $('#btn-back-ems').on('click', function(e) {
+        window.history.back();
+    })
 });
 
 

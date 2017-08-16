@@ -1,6 +1,7 @@
 class Blog < ApplicationRecord
   scope :sort_by_ASC, ->{order created_at: :asc}
   scope :sort_by_DESC, ->{order created_at: :desc}
+  scope :sort_by_public_time, ->{order public_time: :desc}
 
   mount_uploader :intro_image, ImageUploader
   mount_uploader :author_image, ImageUploader

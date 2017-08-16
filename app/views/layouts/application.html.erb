@@ -10,9 +10,13 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
-      <%= yield %>
-    <%= render "layouts/footer" %>
+    <% if current_user %>
+      <%= render "layouts/header" %>
+    <% end %>
+    <%= yield %>
+    <% if current_user %>
+      <%= render "layouts/footer" %>
+    <% end %>
     <div id="modal-main-welcome-ems" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
       <div class="modal-dialog modal-dialog-comment-ems">
         <div id="welcome-text">

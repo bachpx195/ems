@@ -1,0 +1,26 @@
+<div class="col-xs-4 social social-share-button"  data-title="<%= @blog.title %>">
+  <button class="btn-twitter" id="share-twitter" rel="nofollow " data-site="twitter" onclick="return SocialShareButton.share(this);">
+    <img src="/assets/twitter" alt="">
+  </button>
+</div>
+<div class="col-xs-4 social social-share-button" data-title="<%= @blog.title %>">
+  <button class="btn-facebook" rel="nofollow " data-site="facebook" onclick="return SocialShareButton.share(this);">
+    <img src="/assets/facebook" alt="">
+  </button>
+</div>
+<div class="col-xs-4 social">
+  <button class="btn-line" rel="nofollow " data-site="line" onclick="return SocialShareButton.share(this);">
+    <img src="/assets/line" alt="">
+  </button>
+</div>
+<div class="">
+    <div id="line-share-btn-ems" class="line-it-button" data-lang="en" data-type="share-a" data-url="<%= blog_url(@blog) %>"></div>
+</div>
+
+<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+<script type="text/javascript">LineIt.loadButton();</script>
+<script>
+  function shareLine() {
+      $('#document').click();
+  }
+</script>

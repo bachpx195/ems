@@ -4,9 +4,13 @@ class BlogsController < ApplicationController
 
   def index
     if params[:category].nil?
-      @blogs = Blog.published.includes(:category).page(params[:page]).per(10)
+      if params[:get_suggest_action].eql? "suggest"
+        @blogs = Blog.published.available.includes(:category).sort_by_public_time.page(params[:page]).per(10)
+      else
+        @blogs = Blog.published.includes(:category).sort_by_public_time.page(params[:page]).per(10)
+      end
     else
-      @blogs = Blog.published.where(category_id: params[:category].to_i).includes(:category).page(params[:page]).per(10)
+      @blogs = Blog.published.where(category_id: params[:category].to_i).sort_by_public_time.includes(:category).page(params[:page]).per(10)
     end
     @category = Category.all
     respond_to do |format|

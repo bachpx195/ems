@@ -22,6 +22,7 @@ gem "font-awesome-rails"
 
 # Authentication
 gem "devise"
+gem "devise-bootstrap-views"
 
 # Upload file
 gem "carrierwave"

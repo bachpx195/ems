@@ -1,0 +1,24 @@
+<%= link_to blogs_path(type_action: "category", get_suggest_action: "suggest"), remote: true do %>
+    <li id="suggest" onclick="return active('suggest')">オススメ</li>
+<% end %>
+<% @category.each do |category| %>
+    <%= link_to blogs_path(category: category.id, type_action: "category"), remote: true do %>
+        <li id="<%= category.id %>" onclick="return active(<%= category.id %>)"><%=  category.name %></li>
+    <% end %>
+<% end %>
+<%= link_to blogs_path(type_action: "category"), remote: true do %>
+    <li id="root" class="<%= params[:category].nil? ? "active" : "" %>" onclick="return active('root')">すべて</li>
+<% end %>
+<script>
+  function active(num) {
+      $(".slick-slide").find(".active").removeClass("active");
+      if(num == 'root'){
+          $("#root").addClass("active");
+      } else if(num == 'suggest'){
+          $("#suggest").addClass("active");
+      } else {
+          var idNum = "#" + num;
+          $(idNum).addClass("active");
+      }
+  }
+</script>

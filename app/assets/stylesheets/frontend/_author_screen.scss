@@ -81,6 +81,7 @@
       margin-top: 2.248vh;
       padding-left: 5.33vw;
       padding-right: 5.33vw;
+
     }
   }
   #second_info, #third_info{
@@ -97,6 +98,9 @@
       margin-top: 2.248vh;
       padding-left: 5.33vw;
       padding-right: 5.33vw;
+      img {
+        width: 100%;
+      }
     }
   }
 }

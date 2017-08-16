@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin, skip: [:sessions, :passwords]
 
+
+
   devise_scope :admin do
     get "/admin/login" => "admin/sessions#new", as: :admin_session
     post "/admin/login" => "admin/sessions#create", as: :admin_login

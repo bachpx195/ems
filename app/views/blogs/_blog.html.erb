@@ -1,6 +1,6 @@
 <% @blogs.each do |blog| %>
   <li>
-    <a href="<%= blog_path blog %>">
+    <a href="<%= blog_path blog %>" style="text-decoration : none">
       <div class="row">
         <% if blog.suggest_status.eql?("available") %>
             <div class="promoted">

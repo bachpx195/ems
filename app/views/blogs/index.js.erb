@@ -1,6 +1,5 @@
-<% if params[:type_page] == "welcome" %>
-  $('#modal-body-comment').html("");
-  $('#modal-main-welcome-ems').modal();
+<% if params[:type_action].eql?("category") %>
+  $("#my-blogs-user").html("<%= j render 'blog' %>");
 <% else %>
   $("#my-blogs-user").append("<%= j render "blog" %>");
   <% if params[:category].nil? %>

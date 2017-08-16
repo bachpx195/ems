@@ -29,7 +29,7 @@ ja:
         self_check: "セルフチェック"
         friend_hint: "フレンズヒント"
         manager_user: "管理ユーザー"
-        logout: "ログイン"
+        logout: "ログアウト"
         blog: "ブログ"
         list_blog: "ブログ記事一覧"
         create_blog: "ブログ記事新規作成"

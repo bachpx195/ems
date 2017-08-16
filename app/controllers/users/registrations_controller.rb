@@ -1,18 +1,13 @@
-class Users::SessionsController < Devise::SessionsController
+class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_in_params, only: [:create]
 
-  # GET /resource/sign_in
+  # GET /resource/registrations
   # def new
   #   super
   # end
 
-  # POST /resource/sign_in
+  # POST /resource/registrations
   # def create
-  #   super
-  # end
-
-  # DELETE /resource/sign_out
-  # def destroy
   #   super
   # end
 
@@ -22,10 +17,4 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-
-  private
-
-  def sign_up_params
-    params.require(:user).permit(:email, :password)
-  end
 end

@@ -24,7 +24,9 @@ class Admin::BlogsController < Admin::BaseAdminController
     @blog = Blog.new blog_params
     if params[:action_type] == "create"
       @blog.intro_image = File.open(params[:image_path].to_s)
-      @blog.author_image = File.open(params[:image_author_path].to_s)
+      unless params[:image_author_path].to_s.blank?
+        @blog.author_image = File.open(params[:image_author_path].to_s)
+      end
       if params[:commit] == t("admin.blog.create.form.back")
         render :new
       elsif params[:commit] == t("admin.blog.create.form.save")

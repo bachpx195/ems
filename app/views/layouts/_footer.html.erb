@@ -9,7 +9,7 @@
         </div>
       </div>
     </a>
-    <%= link_to blogs_path(type_page: "welcome"), remote: true do %>
+    <%= link_to "#", class: "welcome", id: "#{blogs_url}" do %>
       <div class="col-xs-4 footer-menu <%= params[:controller].eql?("blogs") || params[:controller].eql?("authors") ? "active" : "" %>">
         <div class="detail">
           <img class="default" src="/assets/detail.png" alt="">
