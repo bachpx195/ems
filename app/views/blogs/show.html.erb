@@ -124,20 +124,14 @@
           <p>SNSでシェアする</p>
         </div>
         <%= render 'social_share_btn' %>
-        <% if false %>
-          <a class="" data-lang="en" data-type="share-a" data-url="<%= blog_url(@blog) %>">asdas</a>
-          <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-        <% end %>
       </div>
     </div>
   </div>
 </div>
 <script>
     var check_user_action = "<%= @check_action %>"
-    <% if current_user %>
     $(".review-button").removeClass("review-active");
     $("#"+ check_user_action).addClass("review-active");
-    <% end %>
     $(".review-button").on("click", function(){
         var get_action = $(this).attr("action");
         $(".review-button").removeClass("review-active");
@@ -146,7 +140,7 @@
             url: "/reactions/create",
             dataType: "script",
             method: "post",
-            data: {user_id: <%= current_user ? current_user.id : "" %>, blog_id: <%= @blog.id %>, user_action: get_action }
+            data: {user_id: "<%= current_user ? current_user.id : session.id.to_s %>", blog_id: <%= @blog.id %>, user_action: get_action }
         });
     });
     function display_author_screen(){

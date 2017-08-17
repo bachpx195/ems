@@ -17,6 +17,7 @@
 //= require jquery.inview.min.js
 //= require "admin/blogs.js"
 //= require social-share-button
+//= require "loader.js"
 //= require_tree .
 
 $(function() {

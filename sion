@@ -1,0 +1,33 @@
+=> [[32m#<Session:0x005598cfcb2948[0m
+  id: [1;34m1[0m,
+  session_id: [31m[1;31m"[0m[31m8127189fbb659a0a04a1fb672c620c1b[1;31m"[0m[31m[0m,
+  data:
+   [31m[1;31m"[0m[31mBAh7B0kiEF9jc3JmX3Rva2VuBjoGRUZJIjFNMkVHbjg2NWd6L3NxV0VMS1B4[1;35m\n[0m[31m[1;31m"[0m[31m[0m +
+   [31m[1;31m"[0m[31mN3RGQkpFK2Y3YmRlQXdyMGlFRE5BdEgwPQY7AEZJIhN1c2VyX3JldHVybl90[1;35m\n[0m[31m[1;31m"[0m[31m[0m +
+   [31m[1;31m"[0m[31mbwY7AFRJIgYvBjsAVA==[1;35m\n[0m[31m[1;31m"[0m[31m[0m,
+  created_at: [1;34;4mThu[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2017[0m [1;34m04[0m:[1;34m41[0m:[1;34m19[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2017[0m [1;34m04[0m:[1;34m43[0m:[1;34m04[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Session:0x005598cfc88378[0m
+  id: [1;34m2[0m,
+  session_id: [31m[1;31m"[0m[31m32d2992f1e653fa78060c1e9675d2ba0[1;31m"[0m[31m[0m,
+  data:
+   [31m[1;31m"[0m[31mBAh7BkkiEF9jc3JmX3Rva2VuBjoGRUZJIjFkUnFjNFd5K0hoMGY2Mis0MG9p[1;35m\n[0m[31m[1;31m"[0m[31m[0m +
+   [31m[1;31m"[0m[31mYjM3OTBGL0w2anVjZExRRmphOTJqY2UwPQY7AEY=[1;35m\n[0m[31m[1;31m"[0m[31m[0m,
+  created_at: [1;34;4mThu[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2017[0m [1;34m04[0m:[1;34m43[0m:[1;34m56[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2017[0m [1;34m04[0m:[1;34m43[0m:[1;34m56[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Session:0x005598cfc880f8[0m
+  id: [1;34m3[0m,
+  session_id: [31m[1;31m"[0m[31m466cfbdec57f4e013649bc1fde25c789[1;31m"[0m[31m[0m,
+  data: [31m[1;31m"[0m[31mBAh7AA==[1;35m\n[0m[31m[1;31m"[0m[31m[0m,
+  created_at: [1;34;4mThu[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2017[0m [1;34m05[0m:[1;34m45[0m:[1;34m46[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2017[0m [1;34m05[0m:[1;34m45[0m:[1;34m46[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Session:0x005598cfc82f68[0m
+  id: [1;34m5[0m,
+  session_id: [31m[1;31m"[0m[31mb183b8466dc46b9132f79463be68c7aa[1;31m"[0m[31m[0m,
+  data:
+   [31m[1;31m"[0m[31mBAh7B0kiGndhcmRlbi51c2VyLmFkbWluLmtleQY6BkVUWwdbBmkGSSIiJDJh[1;35m\n[0m[31m[1;31m"[0m[31m[0m +
+   [31m[1;31m"[0m[31mJDExJHdaSFVDci94b1R4dkRtSXR0M292NGUGOwBUSSIQX2NzcmZfdG9rZW4G[1;35m\n[0m[31m[1;31m"[0m[31m[0m +
+   [31m[1;31m"[0m[31mOwBGSSIxM1hUVU1GRlN0cUxRVy9VdkE3QTdJNU5EREd3cHpRRTVCRnJzUlk1[1;35m\n[0m[31m[1;31m"[0m[31m[0m +
+   [31m[1;31m"[0m[31mMnRJST0GOwBG[1;35m\n[0m[31m[1;31m"[0m[31m[0m,
+  created_at: [1;34;4mThu[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2017[0m [1;34m05[0m:[1;34m46[0m:[1;34m20[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2017[0m [1;34m05[0m:[1;34m46[0m:[1;34m20[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m]

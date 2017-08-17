@@ -26,6 +26,10 @@ class BlogsController < ApplicationController
                                blog_id: @blog.id).first
 
       @check_action = @action.rate_type if @action
+    else
+      @action = Reaction.where(user_id: session.id,
+                               blog_id: @blog.id).first
+      @check_action = @action.rate_type if @action
     end
 
     @count_action = Reaction.where(blog_id: @blog.id)

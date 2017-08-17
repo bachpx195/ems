@@ -9,18 +9,13 @@
   </button>
 </div>
 <div class="col-xs-4 social">
-  <button class="btn-line" rel="nofollow " data-site="line" onclick="return SocialShareButton.share(this);">
-    <img src="/assets/line" alt="">
+  <button class="btn-line">
+    <div id="line-share-btn-ems" class="line-it-button" data-lang="en" data-type="share-c" data-url="<%= blog_url(@blog) %>"></div>
   </button>
 </div>
-<div class="">
-    <div id="line-share-btn-ems" class="line-it-button" data-lang="en" data-type="share-a" data-url="<%= blog_url(@blog) %>"></div>
-</div>
 
-<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-<script type="text/javascript">LineIt.loadButton();</script>
 <script>
   function shareLine() {
-      $('#document').click();
+      LineIt.loadButton();
   }
 </script>

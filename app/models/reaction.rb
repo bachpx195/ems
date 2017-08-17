@@ -1,5 +1,5 @@
 class Reaction < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :blog
 
   enum rate_type: %i{not_choose biglike like dislike bigdislike}

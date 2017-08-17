@@ -97,7 +97,10 @@
           background-color:  #3b5997;
         }
         .btn-line{
-          background-color: #00c300;
+          background-color: #00b900;
+          iframe {
+            height: 50% !important;
+          }
         }
       }
       .content{
@@ -319,7 +322,10 @@
       background-color:  #3b5997;
     }
     .btn-line{
-      background-color: #00c300;
+      background-color: #00b900;
+      iframe {
+        height: 50% !important;
+      }
     }
   }
 }

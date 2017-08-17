@@ -12,6 +12,8 @@
   <body>
     <% if current_user %>
       <%= render "layouts/header" %>
+    <% else %>
+      <%= render "layouts/header_non_loggin" %>
     <% end %>
     <%= yield %>
     <% if current_user %>

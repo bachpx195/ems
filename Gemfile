@@ -51,6 +51,9 @@ gem "wicked"
 # media-social-share
 gem "social-share-button"
 
+# session
+gem 'activerecord-session_store'
+
 group :development, :test do
   # Debug
   gem "byebug"
