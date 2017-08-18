@@ -1,4 +1,8 @@
 ja:
+  sign_in: "ログイン"
+  sign_up: "サインアップ"
+  name: "ユーザー名"
+
   alert:
     blog:
       create: "断しいブaグ記事を作成しました．"
@@ -117,7 +121,7 @@ ja:
               blank: "タイ卜ルを人力して下さい。"
               too_long: "255文宇以内て人力して下さい。"
             public_time:
-              blank: "カテゴリを瀋択して下さい。"
+              blank: "公開時間を瀋択して下さい。"
             intro_image:
               blank: "見出し画攣を設足して下さい。"
             content:

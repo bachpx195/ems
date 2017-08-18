@@ -70,6 +70,8 @@ module ApplicationHelper
       "ナルフォード先生のプロフィール"
     elsif str.eql? "users"
       "なるほどユーザー"
+    elsif str.eql?("devise/registrations")
+      "プロフィール編集"
     else
       "トーク"
     end

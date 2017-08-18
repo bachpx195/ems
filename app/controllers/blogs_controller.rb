@@ -20,6 +20,7 @@ class BlogsController < ApplicationController
   end
 
   def show
+    session["init"] = true
     @blog_comments = @blog.comments.includes(:user).order('created_at ASC')
     if current_user
       @action = Reaction.where(user_id: current_user.id,

@@ -34,7 +34,8 @@ namespace :db do
 
     puts "3. create user and comment"
     (1..10).each do |i|
-      user = User.create! username: "User#{i}", email: "skyy#{i}@gmail.com", password: "123456",
+      user = User.create! name: "User#{i}", email: "skyy#{i}@gmail.com", password: "123456",
+        intro: "ダミーテキスト、ナルフォード先生の自己紹介文が入ります。ダミーテキスト、ナルフォード先生の自己紹介文が入ります。ダミーテキスト",
         password_confirmation: "123456", remote_avatar_url: "https://tapchianhdep.com/wp-content/uploads/2016/04/top-hinh-anh-avatar-girl-xinh-thu-hut-nhat-facebook-1.jpg"
       (1..10).each do |j|
         user.comments.create! blog_id: rand(1..40),

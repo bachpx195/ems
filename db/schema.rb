@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20170817080757) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "avatar"
+    t.text "intro"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

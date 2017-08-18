@@ -1,14 +1,14 @@
 <header>
   <div id="header-top">
     <div id="bell">
-      <% if !params[:controller].eql?("pages") && (params[:action].eql?("show") || params[:controller].eql?("authors") || params[:controller].eql?("blogs/authors") ) %>
+      <% if !params[:controller].eql?("pages") && (params[:action].eql?("show") || params[:controller].eql?("authors") || params[:controller].eql?("blogs/authors") || params[:controller].eql?("devise/registrations")) %>
       <% else %>
         <img src="/assets/bell.png" alt="">
       <% end %>
     </div>
     <div id="title-text">
       <p>
-        <a href="#" role="button" class="<%=  !params[:controller].eql?("pages") && (params[:action].eql?("show") || params[:controller].eql?("authors")  || params[:controller].eql?("blogs/authors")) ? "" : "hidden" %>" id="btn-back-ems"><i class="glyphicon glyphicon-chevron-left pull-left blog-back-ems"></i></a><%= title_text(params[:controller]) %>
+        <a href="#" role="button" class="<%=  !params[:controller].eql?("pages") && (params[:action].eql?("show") || params[:controller].eql?("authors")  || params[:controller].eql?("blogs/authors") || params[:controller].eql?("devise/registrations")) ? "" : "hidden" %>" id="btn-back-ems"><i class="glyphicon glyphicon-chevron-left pull-left blog-back-ems"></i></a><%= title_text(params[:controller]) %>
         <a href="<%= user_logout_path %>"><i class="glyphicon glyphicon-log-out pull-right logout-btn-ems <%= current_user ? "" : "hidden" %>"></i></a>
       </p>
     </div>

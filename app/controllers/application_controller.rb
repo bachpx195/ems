@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
-  def authenticate_user!
+  def authenticate_user!(options={})
     if user_signed_in?
-      super
+      super(options)
     else
       store_location_for :user, request.url
       redirect_to user_session_path

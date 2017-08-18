@@ -19,7 +19,7 @@
       </div>
     <% end %>
     <a href="<%= current_user ? user_path(current_user.id) : "" %>" >
-      <div class="col-xs-4 footer-menu <%= params[:controller] == "users" ? "active" : "" %> ">
+      <div class="col-xs-4 footer-menu <%= params[:controller] == "users" || params[:controller].eql?("devise/registrations") ? "active" : "" %> ">
         <div class="author">
           <img class="default" src="/assets/author.png" alt="">
           <img class="selected" src="/assets/author-active.png" alt="">

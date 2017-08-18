@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     get "login" => "users/sessions#new", as: :user_session
     post "login" => "users/sessions#create", as: :user_login
     get "logout" => "users/sessions#destroy", as: :user_logout
+    put "/users" => "users/registrations#update", as: :edit_user
     resources :comments, only: [:create]
     resources :authors, controller: "authors", only: [:index]
 

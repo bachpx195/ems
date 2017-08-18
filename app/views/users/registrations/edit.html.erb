@@ -1,0 +1,107 @@
+<%= bootstrap_devise_error_messages! %>
+<div class="panel panel-default devise-bs" id="create-brand-account-page">
+  <div class="panel-heading">
+    <h4><%= t('.title', resource: resource_class.model_name.human, default: "Edit #{resource_name.to_s.humanize}") %></h4>
+  </div>
+  <div class="panel-body">
+    <%= form_for(resource, as: resource_name, url: edit_user_path, html: {method: :put}) do |f| %>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label t("name") %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <% if false %>
+            <div class="form-group">
+              <%= f.label :avatar %>
+              <div class="file-field">
+                <%= f.file_field :avatar, class: "hide" %>
+              </div>
+              <div class="image-preview">
+                <%= link_to "#" do %>
+                    <%= image_tag f.object.avatar_url ? f.object.avatar_url : "", class: "img-responsive", width: "160" %>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+
+
+        <div class="form-group" id="company-logo-wrap">
+          <%= f.label "アバター" %>
+          <div id="company-logo" class="<%= 'has-logo' if f.object.avatar_url %>">
+            <div class="file-field"><%= f.file_field :avatar, class: "hide" %></div>
+            <div class="image-preview">
+              <% if f.object.avatar_url %>
+                  <a href="<%= image_path f.object.avatar_url %>">
+                    <%= image_tag f.object.avatar, class: "img-responsive", width: "160" %>
+                  </a>
+              <% end %>
+            </div>
+            <a class="upload-logo" href="javascript:void(0)">
+              <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "メモ" %>
+          <%= f.text_area :intro, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it', default: "leave blank if you don't want to change it") %>
+            )</i>
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :current_password %>
+          <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', default: 'we need your current password to confirm your changes') %>
+            )</i>
+          <%= f.password_field :current_password, class: 'form-control' %>
+        </div>
+        <%= f.submit t('.update', default: '確認'), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+<script>
+    var uploadIconUrl = $('#company-logo-wrap').data('logo');
+    var $createBrand = $('#create-brand-account-page');
+
+    $createBrand.on('click', '.image-preview', function() {
+        if($(this).find('img').length > 0) {return;}
+        $(this).parent().find('.file-field input').first().click();
+    });
+
+    // Open upload logo when click to edit icon
+    $createBrand.on('click', '.upload-logo', function() {
+        $(this).closest('#company-logo').find('#user_company_logo').click();
+    });
+
+    // change opacity of preview img and show or hide delete icon
+    $(document).on('mouseenter', '.has-img', function() {
+        $(this).find('.links').first().find('.remove_fields').show();
+        $(this).find('.image-preview').css('opacity', '0.5');
+    });
+
+    $(document).on('mouseleave', '.has-img', function() {
+        $(this).find('.links').first().find('.remove_fields').hide();
+        $(this).find('.image-preview').css('opacity', '1');
+    });
+
+    $(document).on('mouseenter', '.has-logo', function() {
+        $(this).find('.image-preview').css('opacity', '0.5');
+        $(this).find('.upload-logo').first().show();
+    });
+
+    $(document).on('mouseleave', '.has-logo', function() {
+        $(this).find('.image-preview').css('opacity', '1');
+        $(this).find('.upload-logo').first().hide();
+    });
+</script>
+

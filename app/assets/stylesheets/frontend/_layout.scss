@@ -140,3 +140,40 @@ footer {
   background-color: #f0f0f0 !important;
   width: 100vw;
 }
+
+#company-logo {
+  width: 80px;
+  position: relative;
+  margin-bottom: 25px;
+  .image-preview {
+    cursor: pointer;
+    border: 1px dashed gray;
+    width: 80px;
+    height: 80px;
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  .edit-img {
+    position: absolute;
+    top: 33px;
+    right: 30px;
+    z-index: 1;
+    i {
+      font-size: 29px;
+      color: gray;
+    }
+  }
+  .upload-logo {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 2px;
+    z-index: 1;
+    i {
+      font-size: 24px;
+      color: #3598dc;
+    }
+  }
+}

@@ -4,11 +4,15 @@
   width: 90vw;
   top: 10vh;
     #avatar {
-      left: 3vw;
+      left: 0vw;
       width: 100vw;
       position: absolute;
       img {
         width: 90%;
       }
     }
+}
+
+#edit_user {
+  margin-bottom: 5vh;
 }
