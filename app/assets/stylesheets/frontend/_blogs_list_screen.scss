@@ -1,6 +1,6 @@
 .menu-bar{
   position:fixed;
-  top: 6.528vh;
+  top: 6.52vh;
   left: 0;
   background-color: #ffbc01;
   height: 7.646vh;
@@ -18,7 +18,7 @@
     padding-left: 0vh;
     .slick-list {
       padding: 0px !important;
-      margin-left: -50px !important;
+      margin-left: -74vw;
     }
     a:focus {
       outline: none;
@@ -29,7 +29,7 @@
       margin-right: 1vh;
       padding-top: 2vh;
       height: 7vh;
-      width: 27vw;
+      width: 25vw;
       text-align: center;
       background-color: white;
       color: black;
@@ -83,10 +83,19 @@
           left: 0;
           width: 5.39vh;
           height: 5.39vh;
+          z-index: 99;
+        }
+      }
+      .intro-image{
+        padding-left: 0px;
+        img{
+          width: 100%;
+          z-index: 98;
         }
       }
       .blog{
-        margin: 4.79vh 2.99vh 0 2.99vh;
+        //margin: 4.79vh 2.99vh 0 2.99vh;
+        padding-left: 0px;
         .short-content{
           p{
             /*font-size: 24px;*/
@@ -116,7 +125,6 @@
           }
           .publish-time{
             display: inline-block;
-            font-weight: 0px;
             p{
               color: #a7a7a7;
               font-size: 1.8vh;

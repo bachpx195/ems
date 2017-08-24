@@ -25,8 +25,33 @@
                 <% end %>
               </div>
             </div>
-        <% end %>
+            <div class="form-group" id="company-logo-wrap"
+                 data-logo="<%= image_path(Settings.default_upload_icon) %>"
+                 data-invalid-img="<%= image_path(Settings.invalid_img_icon) %>">
+              <label class="col-xs-3 control-label"><%= t "create_brand.logo" %></label>
+              <div class="col-xs-6">
+                <div id="company-logo" class="<%= 'has-logo' if f.object.company_logo_url %>">
+                  <div class="file-field"><%= f.file_field :company_logo, class: "hide" %></div>
+                  <div class="image-preview">
+                    <% if f.object.company_logo_url %>
+                        <a href="<%= image_path f.object.company_logo_url %>">
+                          <%= image_tag f.object.company_logo_url, class: "img-responsive" %>
+                        </a>
+                    <% end %>
+                    <a class="edit-img" href="javascript:void(0)">
+                      <i class="glyphicon glyphicon-plus"></i>
+                    </a>
+                  </div>
+                  <a class="upload-logo" href="javascript:void(0)">
+                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                  </a>
+                  <%= f.hidden_field :company_logo_cache %>
+                  <p class="error-msg"><%= t "errors.messages.extension_whitelist_error" %></p>
+                </div>
+              </div>
+            </div>
 
+  <% end %>
 
         <div class="form-group" id="company-logo-wrap">
           <%= f.label "アバター" %>
@@ -38,6 +63,7 @@
                     <%= image_tag f.object.avatar, class: "img-responsive", width: "160" %>
                   </a>
               <% end %>
+              <i class="glyphicon glyphicon-plus align-center"></i>
             </div>
             <a class="upload-logo" href="javascript:void(0)">
               <i class="fa fa-pencil-square" aria-hidden="true"></i>

@@ -5,6 +5,13 @@
     <%= csrf_meta_tags %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="<%= @blog ? @blog.title : ''%>" />
+    <meta property="og:image" content="<%= @blog ? @blog.intro_image_url : '' %>" />
+    <!--<meta property="og:site_name" content="YouTube">-->
+    <!--<meta property="og:url" content="https://www.youtube.com/watch?v=vvvvcpwFw5o&amp;list=RDvvvvcpwFw5o">-->
+    <!--<meta property="og:title" content="Tokyo Ghoul - Glassy Sky [東京喰種 -トーキョーグール-]">-->
+    <!--<meta property="og:image" content="https://i.ytimg.com/vi/vvvvcpwFw5o/maxresdefault.jpg">-->
+
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
   </head>

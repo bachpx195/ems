@@ -95,9 +95,11 @@
       </div>
       <div class="row comment">
         <p>ご意見・ご感想をお聞かせください</p>
+
         <div class="text-area" >
           <% if @blog_comments %>
               <div id="comment_sentences">
+                </div>
                 <% @blog_comments.order(:created_at).each do |comment| %>
                     <div>
                       <b><%= h(comment.user.username) %></b>: <p style="display: inline-block;"><i><%= h(comment.content) %></i></p>
@@ -108,12 +110,12 @@
           <br>
           <% if current_user %>
             <%= form_for Comment.new, method: :post, remote: true do |f| %>
-                <%= f.text_area :content, placeholder: "投稿内容を入力してください" %>
-                <%= f.hidden_field :blog_id, value: @blog.id %>
-                <% if current_user %>
-                    <%= f.hidden_field :user_id, value: current_user.id %>
-                <% end %>
-                <%= button_tag "送信する", id: "btn_comment" %>
+              <%= f.text_area :content, placeholder: "投稿内容を入力してください" %>
+              <%= f.hidden_field :blog_id, value: @blog.id %>
+              <% if current_user %>
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+              <% end %>
+              <%= button_tag "送信する", id: "btn_comment" %>
             <% end %>
           <% end %>
         </div>

@@ -1,7 +1,7 @@
 <div class="author_screen">
   <div class="row" id="first_info">
     <div class="author_avatar user-avatar_ems">
-      <%= image_tag @user.avatar, class: "img-responsive" %>
+      <%= image_tag @user.avatar.blank? ?  "default-user" : @user.avatar, class: "img-responsive" %>
     </div>
     <div class="author_info">
       <p class="author_info_1">プロフィール</p>

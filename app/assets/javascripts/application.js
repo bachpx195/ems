@@ -22,9 +22,9 @@
 
 $(function() {
     $('.autoplay').slick({
-        infinite: true,
+        infinite: false,
         speed: 300,
-        slidesToShow: 1,
+        slidesToShow: 3,
         centerMode: true,
         variableWidth: true,
         focusOnSelect: true,

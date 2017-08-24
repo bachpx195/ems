@@ -4,12 +4,15 @@
   </button>
 </div>
 <div class="col-xs-4 social social-share-button" data-title="<%= @blog.title %>">
-  <button class="btn-facebook" rel="nofollow " data-site="facebook" onclick="return SocialShareButton.share(this);">
+  <button class="btn-facebook" rel="nofollow " data-site="facebook" onclick="return SocialShareButton.share(this);" data-title="test">
     <img src="/assets/facebook" alt="">
   </button>
 </div>
 <div class="col-xs-4 social">
   <button class="btn-line">
+    <% if false %>
+      <div id="line-share-btn-ems" class="line-it-button" data-lang="en" data-type="share-c" data-url="<%= blog_url(@blog) %>"></div>
+    <% end %>
     <div id="line-share-btn-ems" class="line-it-button" data-lang="en" data-type="share-c" data-url="<%= blog_url(@blog) %>"></div>
   </button>
 </div>
