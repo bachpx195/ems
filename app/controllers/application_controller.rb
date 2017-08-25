@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
       redirect_to user_session_path
     end
   end
+
+  def new_session_path *args
+    user_session_path
+  end
 end

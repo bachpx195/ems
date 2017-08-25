@@ -8,6 +8,7 @@
   // max-width: 100vw;
   // overflow-x: hidden;
   // overflow-y: auto;
+  background-color: #ffffff !important;
   padding-top: 6.528vh;
   padding-bottom: 10vh;
   .row{
@@ -112,7 +113,7 @@
       }
       .author{
         border-radius: 1.54vh;
-        border: dotted 1px #999999;
+        border: dotted 1.5px #999999;
         .row-image-info{
           margin-top: 3.866vh;
           margin-bottom: 3.093vh;
@@ -127,6 +128,7 @@
             display: inline-block;
             margin-right: 4.133vw;
             float: left;
+            margin-bottom: 3vh;
           }
           p{
             color: #787878;
@@ -154,25 +156,27 @@
             padding: 0;
             margin-bottom: 3.01vh;
             .row{
-              margin-left: 5.466vw;
+              //margin-left: -3.534vw;
               margin-top: 3.325vh;
-              margin-bottom: 2.17vh;
-              padding: 3.248vh 6.933vw;
+              margin-bottom: 1.17vh;
+              //padding: 3.248vh 6.933vw;
               p{
-                font-size: 1.469vh;
+                font-size: 1.8vh;
                 color: #4b4b4b;
                 font-weight: bold;
                 color: #333333;
                 display: inline-block;
-                float: left;
+                //float: left;
                 //margin-left: 5.466vw;
                 margin-bottom: 0;
+                margin: auto !important;
               }
               img{
-                width: 2vw!important;
+                width: 3vw!important;
                 height: auto;
                 display: inline-block;
-                float: right;
+                //float: right;
+                margin-left: 3vw;
               }
             }
           }

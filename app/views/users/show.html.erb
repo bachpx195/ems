@@ -1,27 +1,29 @@
-<div class="author_screen">
-  <div class="row" id="first_info">
-    <div class="author_avatar user-avatar_ems">
-      <%= image_tag @user.avatar.blank? ?  "default-user" : @user.avatar, class: "img-responsive" %>
-    </div>
-    <div class="author_info">
-      <p class="author_info_1">プロフィール</p>
-      <p class="author_info_2">
-        <span class="big"><strong><%= @user.name %></strong></span>
-      </p>
-      <div class="author_info_3">
-        <div class="label">
-          <p>Eメール</p>
-        </div>
-        <div class="explain">
-          <p><%= @user.email %></p>
+<% if @user %>
+  <div class="profile_screen">
+    <div class="row" id="first_info">
+      <div class="author_avatar user-avatar_ems">
+        <%= image_tag @user.avatar.blank? ?  "default-user" : @user.avatar, class: "img-responsive" %>
+      </div>
+      <div class="author_info">
+        <p class="author_info_1">プロフィール</p>
+        <p class="author_info_2">
+          <span class="big"><strong><%= @user.name %></strong></span>
+        </p>
+        <div class="author_info_3">
+          <div class="label">
+            <p>Eメール</p>
+          </div>
+          <div class="explain">
+            <p><%= truncate @user.email, length: 15 %></p>
+          </div>
         </div>
       </div>
+      <div class="intro">
+        <p><%= @user.intro %></p>
+      </div>
     </div>
-    <div class="intro">
-      <p><%= @user.intro %></p>
-    </div>
+      <div class="row text-center">
+        <a href="<%= edit_user_registration_path %>" class="btn btn-warning btn-large">プロフィール編集</a>
+      </div>
   </div>
-    <div class="row text-center">
-      <a href="<%= edit_user_registration_path %>" class="btn btn-warning btn-large">プロフィール編集</a>
-    </div>
-</div>
+<% end %>
