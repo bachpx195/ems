@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   get "/pages/*page", to: "pages#show"
   root "pages#show", page: "home"
 
-  devise_for :users, path: "users", skip: [:sessions]
+  devise_for :users, path: "users", skip: [:sessions], controllers: {registrations: "users/registrations"}
   devise_scope :user do
     get "login" => "users/sessions#new", as: :user_session
     post "login" => "users/sessions#create", as: :user_login
