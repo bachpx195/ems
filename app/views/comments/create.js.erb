@@ -1,4 +1,4 @@
 <%if @comment%>
-  $("#comment_sentences").append("<%= escape_javascript (render :partial => 'comment_message') %>");
+  $("#comment_sentences").append("<%= escape_javascript (render partial: 'comment_message', locals: {comment: @comment}) %>");
   $(".comment textarea").val("");
 <%end%>

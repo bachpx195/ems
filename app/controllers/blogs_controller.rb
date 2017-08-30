@@ -20,7 +20,6 @@ class BlogsController < ApplicationController
   end
 
   def show
-    session["init"] = true
     @blog_comments = @blog.comments.includes(:user).order('created_at ASC')
     if current_user
       @action = Reaction.where(user_id: current_user.id,
@@ -28,14 +27,8 @@ class BlogsController < ApplicationController
 
       @check_action = @action.rate_type if @action
     else
-      @action = Reaction.where(user_id: session.id,
-                               blog_id: @blog.id).first
-      @check_action = @action.rate_type if @action
+      @check_action = cookies[:check_action]
     end
-
-    @count_action = Reaction.where(blog_id: @blog.id)
-                        .select(:rate_type)
-                        .group(:rate_type).count
   end
 
   private

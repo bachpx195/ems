@@ -54,6 +54,9 @@ gem "social-share-button"
 # session
 gem 'activerecord-session_store'
 
+# actionMailer with request
+gem 'actionmailer-with-request'
+
 group :development, :test do
   # Debug
   gem "byebug"

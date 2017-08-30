@@ -6,11 +6,13 @@
 <% end %>
 <% @category.each do |category| %>
     <%= link_to blogs_path(category: category.id, type_action: "category"), remote: true do %>
-        <li id="<%= category.id %>" onclick="return active(<%= category.id %>)"><%=  category.name %></li>
+        <li id="<%= category.id %>" onclick="return active(<%= category.id%>, <%= @category.count  %>)"><%=  category.name %></li>
     <% end %>
 <% end %>
+<%  %>
+<%=  %>
 <script>
-  function active(num) {
+  function active(num, category_count) {
       $(".slick-slide").find(".active").removeClass("active");
       if(num == 'root'){
           $("#root").addClass("active");
@@ -21,7 +23,13 @@
       } else {
           var idNum = "#" + num;
           $(idNum).addClass("active");
-          $(".menu-bar ul .slick-list").css("margin-left", "-23vw");
+          if(num == (category_count - 1)){
+            $(".menu-bar ul .slick-list").css("margin-left", "30vw");
+          } else if (num == category_count){
+              $(".menu-bar ul .slick-list").css("margin-left", "73vw");
+          }else {
+            $(".menu-bar ul .slick-list").css("margin-left", "-19vw");
+          }
       }
   }
 </script>

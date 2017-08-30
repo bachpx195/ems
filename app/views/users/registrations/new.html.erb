@@ -21,6 +21,7 @@
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
+        <input class="form-control" type="hidden" value="<%= @host %>" name="user[host]" id="user_host">
         <%= f.submit t('sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
     <% end %>
   </div>

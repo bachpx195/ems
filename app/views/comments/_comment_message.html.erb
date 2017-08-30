@@ -1,3 +1,11 @@
-<div>
-  <b><%= h(@comment.user.username) %></b>: <p style="display: inline-block;"><i><%= h(@comment.content) %></i></p>
+<div class="row">
+  <%= image_tag comment.user.avatar.blank? ? "default-user" : comment.user.avatar, class: "col-xs-3", width: "40", style: "padding-left: 0" %>
+  <div class="panel panel-default col-xs-9">
+    <div class="panel-heading">
+      <strong><%= comment.user.name %></strong> <span class="text-muted"><%= time_ago_in_words(comment.created_at) %></span>
+    </div>
+    <div class="panel-body">
+      <%= h(comment.content) %>
+    </div><!-- /panel-body -->
+  </div>
 </div>

@@ -98,13 +98,10 @@
 
         <div class="text-area" >
           <% if @blog_comments %>
+              <% @blog_comments.order(:created_at).each do |comment| %>
+                  <%= render 'comments/comment_message', comment: comment %>
+              <% end %>
               <div id="comment_sentences">
-                </div>
-                <% @blog_comments.order(:created_at).each do |comment| %>
-                    <div>
-                      <b><%= h(comment.user.username) %></b>: <p style="display: inline-block;"><i><%= h(comment.content) %></i></p>
-                    </div>
-                <% end %>
               </div>
           <% end %>
           <br>
@@ -136,14 +133,32 @@
     $("#"+ check_user_action).addClass("review-active");
     $(".review-button").on("click", function(){
         var get_action = $(this).attr("action");
+        var check_action = $(".check-action").attr("action");
         $(".review-button").removeClass("review-active");
-        $(this).addClass("review-active");
-        $.ajax({
-            url: "/reactions/create",
-            dataType: "script",
-            method: "post",
-            data: {user_id: "<%= current_user ? current_user.id : session.id.to_s %>", blog_id: <%= @blog.id %>, user_action: get_action }
-        });
+        if(get_action == check_action){
+            $.ajax({
+                url: "/reactions/destroy",
+                dataType: "script",
+                method: "delete",
+                data: {
+                    user_id: "<%= current_user ? current_user.id : "" %>",
+                    blog_id: <%= @blog.id %>,
+                    user_action: get_action
+                }
+            });
+        } else {
+            $(this).addClass("review-active");
+            $.ajax({
+                url: "/reactions/create",
+                dataType: "script",
+                method: "post",
+                data: {
+                    user_id: "<%= current_user ? current_user.id : "" %>",
+                    blog_id: <%= @blog.id %>,
+                    user_action: get_action
+                }
+            });
+        }
     });
     function display_author_screen(){
         window.location.href = "<%= blog_authors_path(@blog) %>"

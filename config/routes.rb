@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   get "/pages/*page", to: "pages#show"
   root "pages#show", page: "home"
 
-  devise_for :users, path: "users", skip: [:sessions], controllers: {registrations: "users/registrations"}
+  devise_for :users, path: "users", skip: [:sessions], controllers: {registrations: "users/registrations", confirmations: 'users/confirmations'}
   devise_scope :user do
     get "login" => "users/sessions#new", as: :user_session
     post "login" => "users/sessions#create", as: :user_login
@@ -48,7 +48,9 @@ Rails.application.routes.draw do
     resources :blogs, controller: "blogs" do
       resources :authors, controller: "blogs/authors", only: [:index]
     end
-    post 'reactions/create', only: [:create]
+
+    post 'reactions/create'
+    delete 'reactions/destroy'
 
     resources :users, only: [:show]
   end

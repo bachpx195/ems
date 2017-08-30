@@ -76,4 +76,19 @@ module ApplicationHelper
       "トーク"
     end
   end
+
+  def bootstrap_devise_authentication_error_messages!
+    return '' unless flash.alert
+
+    messages = flash.alert
+
+    html = <<-HTML
+    <div class="alert alert-danger alert-block devise-bs" style="margin-bottom: 0">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <ul>#{messages}</ul>
+    </div>
+    HTML
+
+    html.html_safe
+  end
 end

@@ -11,6 +11,8 @@ GEM
       activejob (= 5.1.2)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 2.0)
+    actionmailer-with-request (0.5.0)
+      rails (>= 5)
     actionpack (5.1.2)
       actionview (= 5.1.2)
       activesupport (= 5.1.2)
@@ -274,6 +276,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  actionmailer-with-request
   activerecord-session_store
   bootstrap-kaminari-views
   bootstrap-sass (~> 3.3.6)

@@ -7,7 +7,7 @@
       <div class="author_info">
         <p class="author_info_1">プロフィール</p>
         <p class="author_info_2">
-          <span class="big"><strong><%= @user.name %></strong></span>
+          <span class="big"><strong><%= truncate @user.name, length: 10 %></strong></span>
         </p>
         <div class="author_info_3">
           <div class="label">

@@ -61,6 +61,16 @@ class Blog < ApplicationRecord
     end
   end
 
+  def rate_like rate_tyle
+    column = rate_tyle + "s_count"
+    update_attribute "#{column}", (self.send(column)+1)
+  end
+
+  def unrate_like rate_tyle
+    column = rate_tyle + "s_count"
+    update_attribute "#{column}", (self.send(column)-1)
+  end
+
   private
   def image_size_validation
     if intro_image.size > 2.megabytes
